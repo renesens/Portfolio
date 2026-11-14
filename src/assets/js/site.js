@@ -45,6 +45,9 @@
       });
     });
     lb.addEventListener("click", close);
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && !lb.hidden) close();
+    });
   }
 
   // ── "Read the steps" toggle on phones ──

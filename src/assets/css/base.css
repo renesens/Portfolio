@@ -40,6 +40,8 @@
 body { margin: 0; background: #FBF6EE; }
 a { color: #B4442E; }
 a:hover { color: #8A3322; }
+/* Bigger tap area (>= 24px) for text links in the footer and next to the form, without changing the look */
+footer a, .contact-links a { padding-block: 4px; }
 
 /* Italic accent in headings: write <em>…</em> in the texts */
 h1 em { font-style: italic; color: #B4442E; }
