@@ -20,7 +20,7 @@ footer_email: Email
 og_image: /assets/img/og-image.png
 
 # Форма связи: адрес вебхука n8n (вставим на шаге 3)
-form_webhook: ""
+form_webhook: "https://n8n.leadstepit.com/webhook/contact-form"
 
 # CV: когда будет PDF, положите его в src/assets/ и впишите путь, например /assets/Renata-Cherniavska-CV.pdf
 # Пока пусто, кнопка «Download CV» скрыта.
