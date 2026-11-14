@@ -1,3 +1,10 @@
 node_modules/
 _site/
 .DS_Store
+
+# Agent / skill tooling (local only)
+.claude/
+.agents/
+.openclaw/
+skills/
+skills-lock.json
