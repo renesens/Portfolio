@@ -1,0 +1,27 @@
+# Общие тексты и настройки сайта (шапка, подвал, контакты).
+# Править можно всё, что справа от двоеточия. Кавычки оставляйте как есть.
+
+name: Renata Cherniavska
+site_url: "https://renata-portfolio.netlify.app"   # заменить на свой домен после подключения
+email: renata.cherniavska@gmail.com
+linkedin: "https://www.linkedin.com/in/renata-cherniavska/"
+
+nav:
+  work: Work
+  process: How I work
+  about: About
+  hello: Say hello
+
+footer: "© 2026 Renata Cherniavska · made in Prague"
+footer_linkedin: LinkedIn
+footer_email: Email
+
+# Картинка-превью для LinkedIn и мессенджеров
+og_image: /assets/img/og-image.png
+
+# Форма связи: адрес вебхука n8n (вставим на шаге 3)
+form_webhook: ""
+
+# CV: когда будет PDF, положите его в src/assets/ и впишите путь, например /assets/Renata-Cherniavska-CV.pdf
+# Пока пусто, кнопка «Download CV» скрыта.
+cv_file: ""

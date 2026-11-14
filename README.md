@@ -1,0 +1,57 @@
+# Сайт-портфолио Ренаты Чернявской
+
+Главная страница + 6 страниц кейсов. Сайт собирается программой Eleventy и публикуется на Netlify автоматически: вы меняете файл на GitHub → через 1–2 минуты изменения на сайте.
+
+## Как поправить текст
+
+Все тексты лежат в папке **`texts/`**:
+
+| Файл | Что в нём |
+| --- | --- |
+| `texts/site.yml` | Имя, меню, подвал, email, LinkedIn, адрес формы, ссылка на CV |
+| `texts/home.yml` | Вся главная страница, сверху вниз |
+| `texts/cases/email-bitrix24.yml` | Кейс Email → Bitrix24 |
+| `texts/cases/bitrix24-redesign.yml` | Кейс редизайна Bitrix24 |
+| `texts/cases/petram-lead-system.yml` | Кейс Petram Construction |
+| `texts/cases/solid-plast.yml` | Кейс Solid-plast |
+| `texts/cases/telegram-guide.yml` | Кейс гида по Праге |
+| `texts/cases/psychologist-ai.yml` | Кейс психолога |
+| `texts/case_ui.yml` | Общие подписи кейсов: «← All work», «Next case» и т. п. |
+
+**Шаги на GitHub:**
+1. Откройте нужный файл → значок карандаша (Edit).
+2. Найдите текст (Ctrl+F / Cmd+F) и измените его **справа от двоеточия**.
+3. Внизу нажмите **Commit changes**. Netlify сам пересоберёт сайт.
+
+**Правила, чтобы ничего не сломать:**
+- Не трогайте слова слева от двоеточия (`title:`, `text:`) и отступы в начале строк.
+- Если текст в кавычках `"..."`, кавычки оставьте. Внутри текста используйте типографские кавычки “ ” или апостроф ’, а не обычные `"`.
+- `<em>…</em>` — курсив терракотой в заголовке.
+- Если после правки сайт не обновился, в Netlify откройте **Deploys** — там будет видна ошибка (обычно лишняя кавычка или сбитый отступ).
+
+## Как заменить картинку
+
+Картинки лежат в `src/assets/img/` (фото — `renata.jpg`, скриншоты — `src/assets/img/cases/`). Загрузите новый файл **с тем же именем** (Add file → Upload files в нужной папке) — и он заменит старый.
+
+## CV
+
+Положите PDF в `src/assets/` и впишите путь в `texts/site.yml`, строка `cv_file`, например `cv_file: "/assets/Renata-Cherniavska-CV.pdf"`. Кнопка «Download CV» появится сама.
+
+## Форма связи
+
+Форма отправляет данные (JSON) на вебхук n8n. Адрес вебхука вписывается в `texts/site.yml`, строка `form_webhook`.
+
+Поля: `name`, `email`, `company`, `topic`, `message`, `page`, `sent_at` и `website` (скрытая ловушка для спам-ботов — если оно заполнено, заявку можно игнорировать).
+
+## Для разработчика
+
+```
+npm install
+npm start        # локальный просмотр на http://localhost:8080
+npm run build    # сборка в папку _site
+```
+
+- Шаблоны: `src/index.njk`, `src/work/*.njk`, общие блоки — `src/_includes/parts.njk`, каркас страницы — `src/_includes/base.njk`.
+- Стили: `src/assets/css/` (`base.css` — шрифты и общее, `home.css`, `case.css`, `case-email.css`).
+- Скрипты: `src/assets/js/site.js` (фильтры кейсов, увеличение скриншотов, шаги на телефоне, форма).
+- Цвета и шрифты: `DESIGN-SYSTEM.md`.

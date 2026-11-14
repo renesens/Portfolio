@@ -1,0 +1,53 @@
+{%- if isHome %}{% set meta = t.home.meta %}{% else %}{% set meta = t.cases[slug].meta %}{% endif -%}
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ meta.title }}</title>
+<meta name="description" content="{{ meta.description }}">
+<link rel="canonical" href="{{ t.site.site_url }}{{ page.url }}">
+<meta property="og:type" content="website">
+<meta property="og:title" content="{{ meta.title }}">
+<meta property="og:description" content="{{ meta.description }}">
+<meta property="og:url" content="{{ t.site.site_url }}{{ page.url }}">
+<meta property="og:image" content="{{ t.site.site_url }}{{ t.site.og_image }}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#FBF6EE">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preload" href="/assets/fonts/fraunces-latin-opsz-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/base.css">
+<link rel="stylesheet" href="/assets/css/{{ css }}.css">
+</head>
+<body>
+<div style="background: #FBF6EE; color: #2B2320; font-family: Inter, system-ui, sans-serif; font-size: 16px; line-height: 1.65; min-height: 100vh">
+
+<header>
+<div class="head" style="max-width: 1200px; margin: 0 auto; padding: 24px 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
+<a href="{% if isHome %}#w-top{% else %}/{% endif %}" style="color: #2B2320; text-decoration: none; font-family: Fraunces, Georgia, serif; font-weight: 500; font-size: 22px">{{ t.site.name }}</a>
+<nav class="main-nav" aria-label="Main" style="display: flex; flex-wrap: wrap; align-items: center; gap: 28px; font-size: 15px">
+<a href="{% if not isHome %}/{% endif %}#w-work" style="color: #5C4F49; text-decoration: none">{{ t.site.nav.work }}</a>
+<a href="{% if not isHome %}/{% endif %}#w-process" style="color: #5C4F49; text-decoration: none">{{ t.site.nav.process }}</a>
+<a href="{% if not isHome %}/{% endif %}#w-about" style="color: #5C4F49; text-decoration: none">{{ t.site.nav.about }}</a>
+<a class="btn" href="{% if not isHome %}/{% endif %}#w-contact" style="color: #FBF6EE; background: #2B2320; text-decoration: none; padding: 10px 20px; border-radius: 999px; font-weight: 500">{{ t.site.nav.hello }}</a>
+</nav>
+</div>
+</header>
+
+{{ content }}
+
+<footer>
+<div class="foot" style="max-width: 1200px; margin: 0 auto; padding: 32px 24px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px; font-size: 14px; color: #7A6B63">
+<span>{{ t.site.footer }}</span>
+<span><a href="{{ t.site.linkedin }}" style="color: #5C4F49">{{ t.site.footer_linkedin }}</a> · <a href="mailto:{{ t.site.email }}" style="color: #5C4F49">{{ t.site.footer_email }}</a></span>
+</div>
+</footer>
+
+</div>
+<script src="/assets/js/site.js" defer></script>
+</body>
+</html>

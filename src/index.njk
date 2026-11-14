@@ -1,0 +1,164 @@
+---
+layout: base.njk
+css: home
+isHome: true
+---
+{%- set h = t.home -%}
+<section id="w-top" style="max-width: 1200px; margin: 0 auto; padding: 72px 24px 96px; display: flex; flex-wrap: wrap; gap: 56px; align-items: center">
+<div style="flex: 1 1 500px; min-width: 0; display: flex; flex-direction: column; gap: 24px">
+<p style="margin: 0; font-family: Caveat, cursive; font-size: 32px; line-height: 1; color: #B4442E">{{ h.hero.hello }}</p>
+<h1 style="margin: 0; font-family: Fraunces, Georgia, serif; font-weight: 400; font-size: 64px; line-height: 1.04; letter-spacing: -0.02em; color: #2B2320">{{ h.hero.title }}</h1>
+<p style="margin: 0; font-size: 19px; color: #5C4F49; max-width: 540px">{{ h.hero.text }}</p>
+<div style="display: flex; flex-wrap: wrap; gap: 12px; align-items: center">
+<a class="btn" href="#w-work" style="color: #FBF6EE; background: #B4442E; text-decoration: none; padding: 14px 26px; border-radius: 999px; font-weight: 500">{{ h.hero.button_work }} <span class="arrow" aria-hidden="true">→</span></a>
+<a class="btn-ghost" href="#w-contact" style="color: #2B2320; border: 1.5px solid #2B2320; text-decoration: none; padding: 13px 25px; border-radius: 999px; font-weight: 500">{{ h.hero.button_contact }}</a>
+</div>
+<p style="margin: 0; font-size: 14px; color: #7A6B63">{{ h.hero.note }}</p>
+</div>
+
+<div style="flex: 1 1 440px; min-width: 0; position: relative; background-color: #F3EBDD; background-image: radial-gradient(#DDCFBA 1.2px, transparent 1.2px); background-size: 22px 22px; border-radius: 28px; padding: 28px 24px; display: flex; flex-direction: column; justify-content: center">
+{%- set s = h.sketch %}
+<svg class="flow-sketch" role="img" aria-label="{{ s.aria }}" viewBox="0 0 320 360" style="width: 100%; height: auto; display: block; overflow: visible">
+<defs><filter id="note-shadow" x="-20%" y="-20%" width="140%" height="160%"><feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#2B2320" flood-opacity="0.14"></feDropShadow></filter></defs>
+<g transform="rotate(-2 86 75)"><rect x="22" y="35" width="128" height="80" fill="#FFE08A" filter="url(#note-shadow)"></rect><text x="33" y="67" font-family="Caveat, cursive" font-size="20" fill="#2B2320">{{ s.note1_title }}</text><text x="33" y="92" font-family="Inter, sans-serif" font-size="9.5" fill="#5C4F49">{{ s.note1_text }}</text></g>
+<g transform="rotate(2.5 234 95)"><rect x="170" y="55" width="128" height="80" fill="#F6C9C0" filter="url(#note-shadow)"></rect><text x="181" y="87" font-family="Caveat, cursive" font-size="20" fill="#2B2320">{{ s.note2_title }}</text><text x="181" y="112" font-family="Inter, sans-serif" font-size="9.5" fill="#5C4F49">{{ s.note2_text }}</text></g>
+<g transform="rotate(1.5 86 235)"><rect x="22" y="195" width="128" height="80" fill="#CFE3C8" filter="url(#note-shadow)"></rect><text x="33" y="227" font-family="Caveat, cursive" font-size="20" fill="#2B2320">{{ s.note3_title }}</text><text x="33" y="252" font-family="Inter, sans-serif" font-size="9.5" fill="#5C4F49">{{ s.note3_text }}</text></g>
+<g transform="rotate(-3 234 250)"><rect x="170" y="210" width="128" height="80" fill="#D9D3F2" filter="url(#note-shadow)"></rect><text x="181" y="242" font-family="Caveat, cursive" font-size="20" fill="#2B2320">{{ s.note4_title }}</text><text x="181" y="267" font-family="Inter, sans-serif" font-size="9.5" fill="#5C4F49">{{ s.note4_text }}</text></g>
+<path class="sketch-arrow a1" pathLength="1" d="M152 70 Q160 66 166 76 M166 69 L166 76 L160 72.6" fill="none" stroke="#B4442E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+<path class="sketch-arrow a2" pathLength="1" d="M210 140 C200 175 150 165 115 192 M121.9 191.1 L115 192 L117.7 185.5" fill="none" stroke="#B4442E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+<text class="sketch-label" x="198" y="180" font-family="Caveat, cursive" font-size="18" fill="#B4442E">{{ s.arrow_label }}</text>
+<path class="sketch-arrow a3" pathLength="1" d="M152 240 Q160 236 166 244 M165.2 237.1 L166 244 L159.6 241.3" fill="none" stroke="#B4442E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+<text x="300" y="340" text-anchor="end" font-family="Caveat, cursive" font-size="18" fill="#7A6B63">{{ s.caption }}</text>
+</svg>
+</div>
+</section>
+
+<section aria-labelledby="w-do-h" style="max-width: 1200px; margin: 0 auto; padding: 24px 24px 96px; display: flex; flex-direction: column; gap: 36px">
+<h2 id="w-do-h" style="margin: 0; font-family: Fraunces, Georgia, serif; font-weight: 400; font-size: 42px; line-height: 1.12; max-width: 760px">{{ h.what_i_do.title }}</h2>
+<div class="reveal" style="display: flex; flex-wrap: wrap; gap: 16px">
+{%- for c in h.what_i_do.cards %}
+<div style="flex: 1 1 250px; background: {{ c.color }}; border-radius: 22px; padding: 28px; display: flex; flex-direction: column; gap: 10px"><h3 style="margin: 0; font-family: Fraunces, Georgia, serif; font-weight: 500; font-size: 22px">{{ c.title }}</h3><p style="margin: 0; font-size: 15px; color: #5C4F49">{{ c.text }}</p></div>
+{%- endfor %}
+</div>
+</section>
+
+<section id="w-work" aria-labelledby="w-work-h" style="background: #F3EBDD">
+<div style="max-width: 1200px; margin: 0 auto; padding: 96px 24px; display: flex; flex-direction: column; gap: 36px">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 24px">
+<div style="display: flex; flex-direction: column; gap: 8px">
+<p style="margin: 0; font-family: Caveat, cursive; font-size: 28px; line-height: 1; color: #B4442E">{{ h.work.note }}</p>
+<h2 id="w-work-h" style="margin: 0; font-family: Fraunces, Georgia, serif; font-weight: 400; font-size: 42px; line-height: 1.12">{{ h.work.title }}</h2>
+</div>
+<div role="group" aria-label="{{ h.work.filters_aria }}" style="display: flex; flex-wrap: wrap; gap: 8px">
+{%- for f in h.work.filters %}
+<button class="chipbtn" type="button" data-filter="{{ f.id }}" aria-pressed="{% if loop.first %}true{% else %}false{% endif %}" style="font: inherit; font-size: 14px; border-radius: 999px; padding: 9px 17px; cursor: pointer">{{ f.label }}</button>
+{%- endfor %}
+</div>
+</div>
+
+<div class="reveal" style="display: flex; flex-wrap: wrap; gap: 20px">
+{%- for slug in h.work.order %}{% set cs = t.cases[slug].card %}
+<a class="case" data-cat="{{ cs.cat }}" href="/work/{{ slug }}/" style="flex: 1 1 340px; text-decoration: none; color: #2B2320; background: #FFFDF9; border-radius: 22px; padding: 28px; display: flex; flex-direction: column; gap: 12px">
+<span style="align-self: flex-start; font-size: 13px; font-weight: 500; background: {{ cs.tag_color }}; border-radius: 999px; padding: 4px 12px">{{ cs.tag }}</span>
+<span style="font-family: Fraunces, Georgia, serif; font-size: 23px; line-height: 1.25">{{ cs.title }}</span>
+<span style="font-size: 15px; color: #5C4F49">{{ cs.text }}</span>
+<span style="margin-top: auto; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px"><span style="font-size: 13px; color: #7A6B63">{{ cs.stack }}</span><span class="more">{{ h.work.read_case }} <span class="arrow" aria-hidden="true">→</span></span></span>
+</a>
+{%- endfor %}
+</div>
+</div>
+</section>
+
+<section id="w-process" aria-labelledby="w-proc-h">
+<div style="max-width: 1200px; margin: 0 auto; padding: 104px 24px; display: flex; flex-direction: column; gap: 52px">
+<div style="display: flex; flex-direction: column; gap: 14px; align-items: center; text-align: center">
+<h2 id="w-proc-h" style="margin: 0; font-family: Fraunces, Georgia, serif; font-weight: 400; font-style: italic; font-size: 68px; line-height: 1.02; letter-spacing: -0.02em">{{ h.process.title }}</h2>
+<p style="margin: 0; font-size: 18px; color: #5C4F49; max-width: 580px">{{ h.process.text }}</p>
+</div>
+{%- set stickers = [["#FFE08A","-1.5deg"],["#F6C9C0","1.5deg"],["#CFE3C8","-1deg"],["#D9D3F2","2deg"],["#FFE08A","-2deg"]] %}
+<ol class="reveal" style="list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 20px; justify-content: center">
+{%- for st in h.process.steps %}{% set sk = stickers[loop.index0 % 5] %}
+<li style="flex: 1 1 190px; max-width: 220px; background: {{ sk[0] }}; padding: 22px 20px 26px; transform: rotate({{ sk[1] }}); box-shadow: 0 6px 14px rgba(43,35,32,0.10); display: flex; flex-direction: column; gap: 6px"><span style="font-family: Caveat, cursive; font-size: 30px; line-height: 1">{{ st.title }}</span><span style="font-size: 14px; color: #5C4F49">{{ st.text }}</span></li>
+{%- endfor %}
+</ol>
+</div>
+</section>
+
+<section id="w-about" aria-labelledby="w-about-h" style="background: #2B2320; color: #F3EBDD">
+<div class="reveal" style="max-width: 1200px; margin: 0 auto; padding: 104px 24px; display: flex; flex-wrap: wrap; gap: 64px; align-items: center">
+<img src="/assets/img/renata.jpg" alt="{{ h.about.photo_alt }}" width="720" height="900" style="flex: 0 1 360px; min-width: 0; width: 360px; max-width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 30%; background: #3D322D; border-radius: 180px 180px 24px 24px; display: block">
+<div style="flex: 1 1 480px; min-width: 0; display: flex; flex-direction: column; gap: 20px">
+<p style="margin: 0; font-family: Caveat, cursive; font-size: 30px; line-height: 1; color: #F2A58E">{{ h.about.note }}</p>
+<h2 id="w-about-h" style="margin: 0; font-family: Fraunces, Georgia, serif; font-weight: 400; font-size: 44px; line-height: 1.1; color: #FBF6EE">{{ h.about.title }}</h2>
+{%- for p in h.about.paragraphs %}
+<p style="margin: 0; font-size: 17px; color: #D6C9BD">{{ p }}</p>
+{%- endfor %}
+<div style="display: flex; flex-wrap: wrap; gap: 12px; margin-top: 8px">
+{%- for c in h.about.chips %}
+<span style="border: 1px solid #5A4C45; border-radius: 999px; padding: 8px 16px; font-size: 14px">{{ c }}</span>
+{%- endfor %}
+</div>
+<p style="margin: 8px 0 0; font-size: 15px; color: #B8A99E">{{ h.about.languages }}</p>
+</div>
+</div>
+</section>
+
+<section aria-labelledby="w-exp-h">
+<div class="reveal" style="max-width: 1200px; margin: 0 auto; padding: 96px 24px; display: flex; flex-wrap: wrap; gap: 56px">
+<div style="flex: 1 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 16px">
+<h2 id="w-exp-h" style="margin: 0; font-family: Fraunces, Georgia, serif; font-weight: 400; font-size: 32px">{{ h.experience.title }}</h2>
+<div style="display: flex; flex-direction: column">
+{%- for j in h.experience.jobs %}
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 24px; padding: 16px 0{% if not loop.last %}; border-bottom: 1px solid #E6DACA{% endif %}"><span><strong style="font-weight: 600">{{ j.role }}</strong> <span style="color: #5C4F49">· {{ j.company }}</span></span><span style="font-size: 14px; color: #7A6B63">{{ j.years }}</span></div>
+{%- endfor %}
+</div>
+</div>
+<div style="flex: 1 1 360px; min-width: 0; display: flex; flex-direction: column; gap: 16px">
+<h2 style="margin: 0; font-family: Fraunces, Georgia, serif; font-weight: 400; font-size: 32px">{{ h.certifications.title }}</h2>
+<ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 10px">
+{%- for c in h.certifications.items %}
+<li style="background: #F3EBDD; border-radius: 16px; padding: 14px 18px"><span style="font-weight: 600">{{ c.name }}</span><br><span style="font-size: 14px; color: #7A6B63">{{ c.issuer }}</span></li>
+{%- endfor %}
+</ul>
+{%- if t.site.cv_file %}
+<a class="btn-ghost" href="{{ t.site.cv_file }}" download style="align-self: flex-start; color: #2B2320; border: 1.5px solid #2B2320; text-decoration: none; padding: 11px 22px; border-radius: 999px; font-weight: 500">{{ h.certifications.cv_button }}</a>
+{%- endif %}
+</div>
+</div>
+</section>
+
+{%- set c = h.contact %}
+<section id="w-contact" aria-labelledby="w-contact-h" style="background: #F3EBDD">
+<div class="reveal" style="max-width: 1200px; margin: 0 auto; padding: 104px 24px; display: flex; flex-wrap: wrap; gap: 56px">
+<div style="flex: 1 1 400px; min-width: 0; display: flex; flex-direction: column; gap: 20px">
+<h2 id="w-contact-h" style="margin: 0; font-family: Fraunces, Georgia, serif; font-weight: 400; font-size: 52px; line-height: 1.05">{{ c.title }}</h2>
+<p style="margin: 0; font-size: 17px; color: #5C4F49">{{ c.text }}</p>
+<div style="background: #FFFDF9; border-radius: 20px; padding: 22px; display: flex; flex-direction: column; gap: 14px; margin-top: 8px">
+<p style="margin: 0; font-family: Caveat, cursive; font-size: 26px; line-height: 1.1; color: #B4442E">{{ c.note }}</p>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font-size: 13px; font-weight: 500">
+<span style="background: #FFF1C7; border-radius: 8px; padding: 6px 10px">{{ c.flow[0] }}</span><span aria-hidden="true" style="color: #7A6B63">→</span>
+<span style="background: #FBE0D9; border-radius: 8px; padding: 6px 10px">{{ c.flow[1] }}</span><span aria-hidden="true" style="color: #7A6B63">→</span>
+<span style="background: #E3EEDD; border-radius: 8px; padding: 6px 10px">{{ c.flow[2] }}</span><span aria-hidden="true" style="color: #7A6B63">+</span>
+<span style="background: #E3EEDD; border-radius: 8px; padding: 6px 10px">{{ c.flow[3] }}</span><span aria-hidden="true" style="color: #7A6B63">→</span>
+<span style="background: #E8E4F7; border-radius: 8px; padding: 6px 10px">{{ c.flow[4] }}</span>
+</div>
+<p style="margin: 0; font-size: 14px; color: #5C4F49">{{ c.flow_caption }}</p>
+</div>
+<p style="margin: 8px 0 0; font-size: 15px"><a href="mailto:{{ t.site.email }}">{{ t.site.email }}</a> · <a href="{{ t.site.linkedin }}">{{ c.linkedin }}</a></p>
+</div>
+<form id="contact-form" data-webhook="{{ t.site.form_webhook }}" data-sending="{{ c.form.sending }}" data-success="{{ c.form.success }}" data-error="{{ c.form.error }}" novalidate style="flex: 1 1 460px; min-width: 0; background: #FFFDF9; border-radius: 28px; padding: 36px; display: flex; flex-direction: column; gap: 18px">
+<div style="display: flex; flex-wrap: wrap; gap: 16px">
+<div style="flex: 1 1 180px; display: flex; flex-direction: column; gap: 6px"><label for="w-name" style="font-size: 14px; font-weight: 500">{{ c.form.name }}</label><input id="w-name" name="name" type="text" autocomplete="name" required style="font: inherit; color: #2B2320; background: #FBF6EE; border: 1.5px solid #E6DACA; border-radius: 12px; padding: 12px 14px"></div>
+<div style="flex: 1 1 180px; display: flex; flex-direction: column; gap: 6px"><label for="w-email" style="font-size: 14px; font-weight: 500">{{ c.form.email }}</label><input id="w-email" name="email" type="email" autocomplete="email" required style="font: inherit; color: #2B2320; background: #FBF6EE; border: 1.5px solid #E6DACA; border-radius: 12px; padding: 12px 14px"></div>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 16px">
+<div style="flex: 1 1 180px; display: flex; flex-direction: column; gap: 6px"><label for="w-co" style="font-size: 14px; font-weight: 500">{{ c.form.company }}</label><input id="w-co" name="company" type="text" autocomplete="organization" style="font: inherit; color: #2B2320; background: #FBF6EE; border: 1.5px solid #E6DACA; border-radius: 12px; padding: 12px 14px"></div>
+<div style="flex: 1 1 180px; display: flex; flex-direction: column; gap: 6px"><label for="w-type" style="font-size: 14px; font-weight: 500">{{ c.form.topic }}</label><select id="w-type" name="topic" style="font: inherit; color: #2B2320; background: #FBF6EE; border: 1.5px solid #E6DACA; border-radius: 12px; padding: 12px 14px">{% for o in c.form.topics %}<option>{{ o }}</option>{% endfor %}</select></div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 6px"><label for="w-msg" style="font-size: 14px; font-weight: 500">{{ c.form.message }}</label><textarea id="w-msg" name="message" rows="5" required style="font: inherit; color: #2B2320; background: #FBF6EE; border: 1.5px solid #E6DACA; border-radius: 12px; padding: 12px 14px; resize: vertical"></textarea></div>
+<div class="hp" aria-hidden="true"><label for="w-web">Website</label><input id="w-web" name="website" type="text" tabindex="-1" autocomplete="off"></div>
+<button class="btn" type="submit" style="font: inherit; font-weight: 500; color: #FBF6EE; background: #B4442E; border: 0; border-radius: 999px; padding: 14px 28px; cursor: pointer; align-self: flex-start">{{ c.form.button }} <span class="arrow" aria-hidden="true">→</span></button>
+<p class="form-status" role="status" aria-live="polite" hidden></p>
+</form>
+</div>
+</section>

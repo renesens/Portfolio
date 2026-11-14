@@ -1,0 +1,127 @@
+# Тексты главной страницы — по порядку сверху вниз.
+# <em>…</em> — курсив терракотовым цветом в заголовке.
+
+meta:
+  title: "Renata Cherniavska — I turn messy processes into simple, reliable systems"
+  description: "Engineer by training, QA by habit. I connect CRM, email, chat and forms for service businesses — and add AI only where it actually helps."
+
+# ── Первый экран ──
+hero:
+  hello: "Hi, I'm Renata."
+  title: "I turn messy processes into <em>simple, reliable</em> systems."
+  text: "Engineer by training, QA by habit. I connect CRM, email, chat and forms for service businesses — and add AI only where it actually helps."
+  button_work: "See my work"
+  button_contact: "Write to me"
+  note: "Based in Prague · Make · n8n · Bitrix24 · ManyChat · OpenAI"
+
+# Стикеры на схеме справа
+sketch:
+  aria: "A lead flow sketched as sticky notes: a new request is checked for duplicates. If it is not a duplicate, a lead is created in Bitrix24 and the manager is notified."
+  note1_title: "New request"
+  note1_text: "website · email · Telegram"
+  note2_title: "Duplicate?"
+  note2_text: "Message-ID · phone"
+  note3_title: "Lead in Bitrix24"
+  note3_text: "source · owner · next step"
+  note4_title: "Manager notified"
+  note4_text: "task + reminder"
+  arrow_label: "no — create it"
+  caption: "first the map, then the build"
+
+# ── What I do ──
+what_i_do:
+  title: "What I do"
+  cards:
+    - title: "Lead flows"
+      text: "Requests from the website, email and messengers land in one place, qualified and assigned."
+      color: "#FFF1C7"
+    - title: "CRM setup"
+      text: "Bitrix24 pipelines, stages and fields that match how the team really sells."
+      color: "#E3EEDD"
+    - title: "Integrations"
+      text: "CRM, email, forms and sheets talk to each other through Make and n8n — without duplicates."
+      color: "#FBE0D9"
+    - title: "AI chatbots"
+      text: "Chatbots answer the routine ones and hand complex or sensitive questions to a person."
+      color: "#E8E4F7"
+
+# ── Selected work ──
+# Карточки кейсов берутся из файлов texts/cases/*.yml (раздел card), порядок — ниже.
+work:
+  note: "real projects, real processes"
+  title: "Selected work"
+  filters_aria: "Filter case studies"
+  filters:
+    - { id: all, label: "All" }
+    - { id: crm, label: "CRM" }
+    - { id: leads, label: "Lead flows" }
+    - { id: ai, label: "AI chatbots" }
+  read_case: "Read case"
+  order: [bitrix24-redesign, email-bitrix24, petram-lead-system, solid-plast, telegram-guide, psychologist-ai]
+
+# ── How I work ──
+process:
+  title: "Process first, tools second."
+  text: "I start with the business process and the people who use it — then choose the tool."
+  steps:
+    - title: "1. Audit"
+      text: "Trigger, data, owners, expected result."
+    - title: "2. Map it out"
+      text: "A clear diagram of the flow, fields and rules — agreed before I build."
+    - title: "3. Build"
+      text: "A first useful version, not a perfect one."
+    - title: "4. Break it"
+      text: "Empty fields, duplicates, API errors — before launch."
+    - title: "5. Hand over"
+      text: "Documentation and instructions for the team."
+
+# ── About ──
+about:
+  photo_alt: "Renata Cherniavska at her desk with a laptop"
+  note: "a little about me"
+  title: "I used to find where networks broke. Now I find where processes do."
+  paragraphs:
+    - "For about seven years at Ukrtelecom and Nokia Networks I monitored network performance, troubleshot complex failures and tested equipment before it went live. Then I worked as a QA engineer (API testing in Postman, SQL / PostgreSQL, Jira, Git)."
+    - "That's why I think about what can go wrong before it does — and build checks and error handling in from day one."
+  chips:
+    - "Engineering → understand systems"
+    - "QA → check what can go wrong"
+    - "Operations → build what people use daily"
+  languages: "Languages: English — working · Czech — good · Ukrainian, Russian — native"
+
+# ── Experience & Certifications ──
+experience:
+  title: "Experience"
+  jobs:
+    - { role: "Business Automation Specialist", company: "Aquinium s.r.o", years: "2026 — now" }
+    - { role: "AI-Driven Business Automation Specialist", company: "Freelance", years: "2024 — now" }
+    - { role: "Marketing Operations Manager", company: "Aquinium", years: "2023 — 2024" }
+    - { role: "QA Engineer", company: "ITX", years: "2022 — 2023" }
+    - { role: "Electronics Engineering Technologist", company: "Nokia Networks, Ukrtelecom", years: "Earlier" }
+certifications:
+  title: "Certifications"
+  items:
+    - { name: "Automation with Make — Advanced", issuer: "AI Education / Web3nity" }
+    - { name: "AI Assistants · Automation with AI Bots", issuer: "AI Education / Web3nity" }
+  cv_button: "Download CV"
+
+# ── Contact ──
+contact:
+  title: "Let's talk"
+  text: "A role, a project or just a question — send me a few lines. I read every message myself."
+  note: "psst — this form is my automation too"
+  flow: ["Form", "n8n webhook", "Telegram", "Google Sheets", "Auto-reply"]
+  flow_caption: "This form runs on my own n8n workflow."
+  linkedin: "LinkedIn"
+  form:
+    name: "Your name"
+    email: "Email"
+    company: "Company / role"
+    topic: "What's it about?"
+    topics: ["Job opportunity", "Project", "Other"]
+    message: "Message"
+    button: "Send message"
+    # Сообщения после отправки (новые тексты — нужно ваше согласие)
+    sending: "Sending…"
+    success: "Thank you! Your message is on its way. I'll reply soon."
+    error: "Something went wrong. Please email me at renata.cherniavska@gmail.com."

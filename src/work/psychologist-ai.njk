@@ -1,0 +1,44 @@
+---
+layout: base.njk
+css: case
+slug: psychologist-ai
+permalink: /work/psychologist-ai/
+---
+{%- import "parts.njk" as p -%}
+{%- set c = t.cases[slug] -%}{%- set ui = t.case_ui -%}{%- set d = c.diagram -%}
+{{ p.hero(c, ui) }}
+
+<section aria-labelledby="c-problem" style="background: #F3EBDD">
+<div style="max-width: 1200px; margin: 0 auto; padding: 88px 24px; display: flex; flex-wrap: wrap; gap: 56px; align-items: center">
+<div style="flex: 1 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 16px">
+{{ p.heading(c.problem.note, c.problem.title, "c-problem") }}
+{%- for para in c.problem.paragraphs %}
+<p style="margin: 0; font-size: 17px; color: #5C4F49">{{ para }}</p>
+{%- endfor %}
+</div>
+{{ p.stickers(c.problem.stickers) }}
+</div>
+</section>
+
+<section aria-labelledby="c-solution">
+<div style="max-width: 1200px; margin: 0 auto; padding: 96px 24px; display: flex; flex-wrap: wrap; gap: 56px; align-items: flex-start">
+<div style="flex: 1 1 460px; min-width: 0; display: flex; flex-direction: column; gap: 20px">
+{{ p.heading(c.solution.note, c.solution.title, "c-solution") }}
+<p style="margin: 0; font-size: 17px; color: #5C4F49">{{ c.solution.text }}</p>
+{{ p.steps(c.solution.steps) }}
+</div>
+<figure style="flex: 1 1 460px; min-width: 0; margin: 0; display: flex; flex-direction: column; gap: 12px">
+<div role="img" aria-label="{{ d.aria }}" style="background: #F3EBDD; border-radius: 24px; padding: 24px; display: flex; flex-direction: column; font-size: 14px; line-height: 1.4">
+{{ p.dNode(1, d.n1_title, d.n1_text) }}{{ p.dLine() }}{{ p.dNode(2, d.n2_title, d.n2_text) }}{{ p.dLine() }}<div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: stretch"><div style="flex: 3 1 220px; background: #E3EEDD; border-radius: 14px; padding: 12px 14px; display: flex; gap: 12px; align-items: center"><span style="flex: none; width: 30px; height: 30px; border-radius: 50%; background: #2F6B3F; color: #FFFFFF; font-weight: 600; font-size: 13px; display: flex; align-items: center; justify-content: center">3</span><span><strong style="display: block; font-size: 15px; font-weight: 600">{{ d.q_title }}</strong><span style="color: #5C4F49">{{ d.q_text }}</span></span></div>{{ p.dSide(d.yes_label, d.yes_title, d.yes_text, "#E8E4F7", "#5B4E8C") }}</div>{{ p.dBranch(d.no_label) }}<div style="display: flex; flex-wrap: wrap; gap: 8px"><div style="flex: 1 1 180px; background: #FFFDF9; border-radius: 14px; padding: 12px 14px; display: flex; gap: 12px; align-items: center"><span style="flex: none; width: 30px; height: 30px; border-radius: 50%; background: #2B2320; color: #FBF6EE; font-weight: 600; font-size: 13px; display: flex; align-items: center; justify-content: center">4</span><span><strong style="display: block; font-size: 15px; font-weight: 600">{{ d.n4_title }}</strong><span style="color: #5C4F49">{{ d.n4_text }}</span></span></div><div style="flex: 1 1 180px; background: #FFFDF9; border-radius: 14px; padding: 12px 14px; display: flex; gap: 12px; align-items: center"><span style="flex: none; width: 30px; height: 30px; border-radius: 50%; background: #2B2320; color: #FBF6EE; font-weight: 600; font-size: 13px; display: flex; align-items: center; justify-content: center">5</span><span><strong style="display: block; font-size: 15px; font-weight: 600">{{ d.n5_title }}</strong><span style="color: #5C4F49">{{ d.n5_text }}</span></span></div></div>{{ p.dLine() }}{{ p.dFinal(d.n6_title, d.n6_text) }}
+</div>
+<figcaption style="font-size: 14px; color: #7A6B63">{{ d.caption }}</figcaption>
+</figure>
+{{ p.makeGallery(c.gallery, ui) }}
+</div>
+</section>
+
+{{ p.lesson(c.lesson, "c-lesson") }}
+
+{{ p.results(c.result, "c-result") }}
+
+{{ p.nextCase(c.next, t, ui, true) }}

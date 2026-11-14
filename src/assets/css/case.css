@@ -1,0 +1,28 @@
+/* Case pages (all cases except Email → Bitrix24, which has case-email.css) */
+.btn{transition:filter .2s ease}
+.btn:hover{filter:brightness(0.9)}
+.btn-ghost{transition:background-color .2s ease}
+.btn-ghost:hover{background-color:rgba(43,35,32,0.06)}
+.arrow{display:inline-block;transition:translate .2s ease}
+.btn:hover .arrow,.next:hover .arrow{translate:4px 0}
+.next{transition:translate .25s ease,box-shadow .25s ease}
+.next:hover{translate:0 -4px;box-shadow:0 14px 30px rgba(43,35,32,0.10)}
+.zoom{transition:translate .25s ease,box-shadow .25s ease}
+.zoom:hover{translate:0 -4px;box-shadow:0 14px 30px rgba(43,35,32,0.12)}
+.zoom:focus-visible{outline:3px solid #B4442E;outline-offset:3px}
+.split-arrow-m{display:none}
+@media (max-width:720px){.split-arrow{display:none}.split-arrow-m{display:block}}
+@media (max-width:600px){.merge-h{display:none}}
+@media (max-width:640px){
+header>div{padding:12px 16px!important;gap:4px!important}
+nav[aria-label="Main"]{gap:16px!important;font-size:14px!important}
+nav[aria-label="Main"] a{display:inline-flex;align-items:center;min-height:44px;box-sizing:border-box}
+nav[aria-label="Main"] a.btn{padding:0 16px!important}
+h1{font-size:38px!important}
+h2{font-size:30px!important}
+section[style*="padding: 40px 24px 72px"]{padding:20px 16px 40px!important;gap:20px!important}
+section>div{padding:48px 16px!important;gap:28px!important}
+[role="img"],figure ol{padding:14px!important}
+.next,.next+div{padding:24px!important}
+footer>div{padding:24px 16px!important}
+}

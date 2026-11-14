@@ -1,0 +1,120 @@
+# Кейс: Email → Bitrix24. Тексты по порядку сверху вниз.
+
+meta:
+  title: "Every email request becomes a clean CRM lead — Renata Cherniavska"
+  description: "An automation that turns online store form emails into standardized Bitrix24 leads — with no copy-paste and a check for duplicates."
+
+# Карточка на главной
+card:
+  cat: leads            # фильтр: crm / leads / ai
+  tag: "Lead flows · Aquinium"
+  tag_color: "#FFF1C7"
+  title: "Every email request becomes a clean CRM lead"
+  text: "No manual transfer, duplicates filtered out — and every lead keeps a link to the original email."
+  stack: "Make · Regex · Data Store"
+
+hero:
+  tag: "Lead flows · Aquinium s.r.o"
+  title: "Every email request becomes a <em>clean CRM lead</em>"
+  subtitle: "An automation that turns online store form emails into standardized Bitrix24 leads — with no copy-paste and a check for duplicates."
+  company_label: "Company"
+  company: "Aquinium s.r.o (in-house) — pool & spa equipment, Prague"
+  role: "Email analysis, lead schema, automation build"
+  stack: "Make · Bitrix24 REST API · Magento · Regex · Make Data Store"
+
+problem:
+  note: "the problem"
+  title: "Important requests were stuck in the inbox"
+  paragraphs:
+    - "Customers filled in forms on the Magento online store, and the requests arrived by email. They didn't always make it into the CRM."
+    - "That made it hard to track status, assign an owner and measure results."
+  stickers: ["Status — unclear", "Owner — not assigned", "Results — hard to measure"]
+
+solution:
+  note: "what I built"
+  title: "One scenario, from inbox to CRM"
+  text: "I started with the structure of the emails, designed the lead schema, then built the scenario in Make."
+  steps_show: "Read the steps"     # кнопка на телефоне
+  steps_hide: "Hide the steps"
+  steps:
+    - title: "Find new emails."
+      text: "The scenario picks up new form emails from the inbox."
+    - title: "Parse and normalize."
+      text: "Contact details, product and request details are parsed with regex."
+    - title: "Check if it's already processed."
+      text: "Each email's Message-ID is checked in the Data Store. If it's there, the email is skipped."
+      accent: true
+    - title: "One customer, one lead."
+      text: "If the customer already has an active lead, the repeat request is added to its history, and the email is marked as processed."
+      accent: true
+    - title: "Match the contact by phone."
+      text: "The new lead is linked to an existing Bitrix24 contact, or created with new contact details."
+      accent: true
+    - title: "Create the lead and mark the email."
+      text: "A standardized, tagged lead with a link to the original email. The Message-ID is saved, so the email is skipped next time."
+
+# Схема справа от шагов
+diagram:
+  aria: "Scenario flow: new email arrives, parse and normalize. If the email was already processed, skip it. If the customer has an active lead, add the request to its history and mark the email as processed. Otherwise search the contact by phone and create a new lead, linked to the existing contact or with new contact details, then mark the email as processed."
+  n1_title: "New email arrives"
+  n1_text: "Online store form sent to Outlook"
+  n2_title: "Parse & normalize"
+  n2_text: "Contact, product and request details, with regex"
+  q1_title: "Already processed?"
+  q1_text: "Message-ID checked in Data Store"
+  q1_yes_label: "YES →"
+  q1_yes_title: "Skip"
+  q1_yes_text: "No second lead"
+  no_label: "NO"
+  q2_title: "Active lead for this customer?"
+  q2_text: "Searched in Bitrix24"
+  q2_yes_label: "YES →"
+  q2_yes_title: "Update existing lead"
+  q2_yes_text: "Request added to history, email marked as processed"
+  q3_title: "Contact found by phone?"
+  q3_text: "Searched in Bitrix24 contacts"
+  yes_label: "YES"
+  q3_yes: "New lead linked to existing contact"
+  q3_no: "New lead with contact details"
+  final_title: "Email marked as processed"
+  final_text: "Message-ID saved, so the email is skipped next time"
+  note: "each lead keeps a link to the original email"
+  caption: "The scenario, simplified."
+
+gallery:
+  label: "In Make · click to enlarge"
+  shot:
+    src: /assets/img/cases/email-bitrix24-make.png
+    alt: "The full Make scenario: Outlook email trigger, text parsers and aggregators, Data Store check, routers, Bitrix24 lead and contact search, lead creation and Data Store records"
+    lb_alt: "The full Make scenario from the Outlook email trigger to the lead in Bitrix24"
+    label: "Enlarge: the full scenario in Make"
+    caption: "The full scenario in Make: from the Outlook email to the lead in Bitrix24."
+
+qa:
+  note: "my QA habit"
+  title: "What could go wrong — tested before launch"
+  text: "I built layered error handling into the scenario and tested these cases before launch."
+  cards:
+    - title: "The same email again"
+      text: "Skipped by Message-ID — no second lead."
+    - title: "A returning customer"
+      text: "Added to the existing lead's history."
+    - title: "A changed email format"
+      text: "The error handling catches it, so the scenario keeps working."
+    - title: "Empty fields or an API error"
+      text: "The same error handling catches these too."
+
+result:
+  note: "the result"
+  title: "What changed"
+  cards:
+    - title: "No manual transfer"
+      text: "Email requests appear straight in the CRM."
+    - title: "Duplicates filtered out"
+      text: "Each email is processed once; repeat requests stay with their lead."
+    - title: "Full context"
+      text: "Every lead keeps a link to the original email."
+    - title: "Consistent data"
+      text: "Uniform leads for follow-up and reporting."
+
+next: petram-lead-system

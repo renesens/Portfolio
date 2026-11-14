@@ -1,0 +1,105 @@
+# Кейс: миграция сайта Solid-plast. Тексты по порядку сверху вниз.
+
+meta:
+  title: "A website move to Bitrix24, with its own lead funnel — Renata Cherniavska"
+  description: "I moved the Solid-plast website to the company's shared Bitrix24 account and connected its requests to a separate sales process."
+
+card:
+  cat: crm
+  tag: "CRM · Aquinium (Solid-plast)"
+  tag_color: "#E3EEDD"
+  title: "A website move to Bitrix24, with its own lead funnel"
+  text: "Migrated to Bitrix24 with source tracking on every lead and email DNS records kept intact."
+  stack: "Bitrix24 · CRM forms · DNS"
+
+hero:
+  tag: "CRM · Aquinium (Solid-plast)"
+  title: "A website move to Bitrix24, with its <em>own lead funnel</em>"
+  subtitle: "I moved the Solid-plast website to the company's shared Bitrix24 account and connected its requests to a separate sales process."
+  company_label: "Company"
+  company: "Aquinium s.r.o (in-house) — Solid-plast brand"
+  role: "Website move, CRM setup, end-to-end testing, domain transfer"
+  stack: "Bitrix24 CRM · CRM forms · automation rules · DNS · domain setup"
+
+task:
+  note: "the task"
+  title: "Moving a live website to a new account"
+  paragraphs:
+    - "The Solid-plast website had many pages. It had to move to the company's shared Bitrix24 account, and its requests needed their own sales process."
+    - "The company email runs on the same domain, so the email DNS records had to stay the same."
+  stickers: ["Many pages to move", "A separate sales process", "Email must keep working"]
+
+solution:
+  note: "what I built"
+  title: "From website form to sales pipeline"
+  text: "Every request from the website now becomes a structured lead in Bitrix24."
+  bullets:
+    - title: "One CRM form on all pages."
+      text: "Name, phone, email and the request."
+    - title: "Source on every lead."
+      text: "Each lead shows where it came from and the URL of the page."
+    - title: "Separate Lead and Deal pipelines."
+      text: "Solid-plast has its own pipelines. Qualified leads move to deals automatically."
+
+# Путь заявки в 5 шагов
+path:
+  aria: "The path of a request in five steps"
+  steps:
+    - { title: "Website request", text: "A customer sends a request" }
+    - { title: "CRM form", text: "Name · phone · email · request" }
+    - { title: "Structured lead", text: "Source · page URL" }
+    - { title: "Qualification", text: "Review and qualify" }
+    - { title: "Sales deal pipeline", text: "Quote · follow-up · result" }
+  caption: "The path of a request, from the website form to the sales pipeline."
+
+gallery:
+  label: "In Bitrix24 · click to enlarge"
+  shots:
+    - src: /assets/img/cases/solid-plast-form.jpg
+      alt: "The CRM form fields in Bitrix24 next to the same form on the Solid-plast website"
+      caption: "The CRM form: fields in Bitrix24 and the form on the website (in Czech)."
+    - src: /assets/img/cases/solid-plast-rules.jpg
+      alt: "Automation rules in the Solid Plast sales pipeline: tasks and checks for each stage"
+      caption: "The Solid-plast sales pipeline with automation rules for each stage (in Czech)."
+
+domain:
+  note: "the domain"
+  title: "Moving solid-plast.cz safely"
+  text: "I released the domain from the old account and connected it to the new one. The email DNS records stayed the same. The old website is kept on a subdomain as a backup."
+  aria: "The domain move in four steps"
+  steps:
+    - { title: "Old Bitrix24 account", text: "Website on the live domain" }
+    - { title: "Release the domain", text: "Ready for the transfer" }
+    - { title: "New Bitrix24 account", text: "Website moved and set up" }
+    - { title: "solid-plast.cz live", text: "Website live on the domain" }
+  checks: ["Email DNS kept", "Backup website kept"]
+  caption: "The domain move, step by step."
+
+qa:
+  note: "my QA habit"
+  title: "Checked before launch"
+  text: "Before the new website went live, I tested it page by page and followed a request all the way to a deal."
+  cards:
+    - title: "Every page"
+      text: "Links and contacts on each page."
+    - title: "Mobile version"
+      text: "How the website looks and works on a phone."
+    - title: "All forms"
+      text: "Each form creates a lead with the right data."
+    - title: "Form to deal"
+      text: "The full path, from form to lead to deal."
+
+result:
+  note: "the result"
+  title: "What changed"
+  cards:
+    - title: "Live in the new account"
+      text: "The website works in the shared Bitrix24 account."
+    - title: "Structured leads"
+      text: "Every request creates a lead with its source and page."
+    - title: "Email kept working"
+      text: "The email DNS records were not changed."
+    - title: "A backup in place"
+      text: "The old website stays on a subdomain."
+
+next: telegram-guide

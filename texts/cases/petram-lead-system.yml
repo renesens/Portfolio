@@ -1,0 +1,142 @@
+# Кейс: система заявок Petram Construction. Тексты по порядку сверху вниз.
+
+meta:
+  title: "A lead system for a business that started from zero — Renata Cherniavska"
+  description: "A new pool construction business needed a clear way to collect requests. I built the flow for its website form and its email inbox, and both now create leads in Bitrix24."
+
+card:
+  cat: leads
+  tag: "Lead flows · Aquinium (Petram Construction)"
+  tag_color: "#FFF1C7"
+  title: "A lead system for a business that started from zero"
+  text: "One Lead ID follows each request through the database, automation, sheet and photo folder."
+  stack: "Lovable Cloud · Make · Bitrix24"
+
+hero:
+  tag: "Lead flows · Aquinium (Petram Construction)"
+  title: "A lead system for a business that <em>started from zero</em>"
+  subtitle: "A new pool construction business needed a clear way to collect requests. I built the flow for its website form and its email inbox, and both now create leads in Bitrix24."
+  company_label: "Company"
+  company: "Petram Construction s.r.o — project delivered as part of my role at Aquinium"
+  role: "The whole project, from the lead flow to team notifications"
+  stack: "Lovable Cloud · Make · Make Data Store · Bitrix24 · OpenAI · Google Sheets · Google Drive · Microsoft 365"
+
+problem:
+  note: "the problem"
+  title: "One request is more than a name and an email"
+  paragraphs:
+    - "A request has contact details, pool type, project size, location, free text and several photos of the site. Without the photos, the team can't prepare an accurate offer."
+    - "The company had no structured way to collect all this online. With a new website coming, requests could get lost in the inbox."
+  stickers: ["Many details in one request", "Several site photos", "No process yet"]
+
+solution:
+  note: "what I built"
+  title: "Two channels, one CRM"
+  text: "I started with how a request should move, from the form to the team. Later I added a second scenario, because some customers skip the form and write an email. Then I connected both to Bitrix24."
+  steps:
+    - title: "Website form."
+      text: "The customer sends the details and the site photos."
+    - title: "Save the request."
+      text: "The data goes to the Lovable Cloud database and the photos go to private storage."
+    - title: "Pass it to Make."
+      text: "If the request has photos, Make puts them in a Google Drive folder."
+    - title: "Pick up emails."
+      text: "A second Make scenario works with emails sent straight to the company inbox. A Data Store shows which emails were already processed."
+    - title: "Sort with AI."
+      text: "AI decides if the email is a lead and pulls out the data. An email that isn't a lead is logged. An unclear one is marked for a manual check."
+      accent: true
+    - title: "Create the lead in Bitrix24."
+      text: "Make looks for the contact, adds it if it's new, and creates the lead."
+      accent: true
+    - title: "Update the sheet and the team."
+      text: "Each lead gets a row in Google Sheets. For form requests, the team also gets an email."
+
+diagram:
+  aria: "Two channels into one CRM. Website form: saved in the database and private photo storage, passed to Make, which saves photos to Google Drive. Direct email: a second Make scenario, AI sorts the email; emails that are not leads are logged and unclear ones go to a manual check. Leads from both channels go to Bitrix24 and to Google Sheets."
+  form_label: "Website form"
+  n1_title: "Request sent"
+  n1_text: "Details and site photos"
+  n2_title: "Saved in Lovable Cloud"
+  n2_text: "Database and private photo storage"
+  n3_title: "Make"
+  n3_text: "Saves the photos to Google Drive"
+  email_label: "Direct email"
+  n4_title: "Email to the inbox"
+  n4_text: "Checked against processed emails"
+  q_title: "Is it a lead?"
+  q_text: "AI sorts the email"
+  no_label: "NO →"
+  no_title: "Logged"
+  no_text: "Not a request"
+  unclear_label: "UNCLEAR →"
+  unclear_title: "Manual check"
+  unclear_text: "A person decides"
+  yes_label: "YES"
+  ready_title: "Lead data ready"
+  ready_text: "Attachments saved to Google Drive"
+  merge: "both channels meet here"
+  n6_title: "6 · Bitrix24"
+  n6_text: "Finds or adds the contact, creates the lead"
+  n7_title: "7 · Google Sheets"
+  n7_text: "A row for each lead. The form also emails the team"
+  note: "two ways in, one CRM"
+  caption: "The flow, simplified."
+
+gallery:
+  label: "In Make · click to enlarge"
+  shots:
+    - src: /assets/img/cases/petram-form-scenario.png
+      alt: "The form scenario in Make: webhook, Bitrix24 check, Google Drive folder and photo upload, Bitrix24 contact and lead, Google Sheets row and Microsoft 365 email"
+      caption: "The form scenario: photos go to Google Drive, the contact and the lead go to Bitrix24, then Google Sheets and an email to the team."
+      flex: "1 1 100%"
+    - src: /assets/img/cases/petram-email-scenario.png
+      alt: "The email scenario in Make: Outlook, Data Store check, OpenAI classification, router for leads, non-leads and manual review, attachments to Google Drive, Bitrix24, Google Sheets and log sheets"
+      caption: "The email scenario: AI sorts the email, leads go to Bitrix24 and Google Sheets, and everything else is logged."
+      flex: "1 1 100%"
+
+website:
+  note: "the website"
+  title: "The website behind the form"
+  paragraphs:
+    - "The form lives on stavimebazeny.cz, the company's new website. I built it in Lovable as part of the same project."
+    - "I planned the page structure, wrote texts for the audience, set up basic SEO and checked the mobile version before launch."
+  stack: "Lovable · Google Tag Manager · Search Console"
+  link_text: "Visit stavimebazeny.cz"
+  link: "https://stavimebazeny.cz"
+  items:
+    - { title: "Page structure", text: "Simple, clear pages" }
+    - { title: "Texts", text: "Written for the audience" }
+    - { title: "Basic SEO", text: "Titles and descriptions" }
+    - { title: "Mobile check", text: "Tested on a phone" }
+  last_title: "Analytics ready"
+  last_text: "Google Tag Manager and Search Console connected"
+
+why:
+  note: "why it's built this way"
+  title: "The decisions behind the flow"
+  text: "A few choices keep the data in order when requests and photos move between systems."
+  cards:
+    - title: "One Lead ID"
+      text: "Every request gets one, from the form or from email. For form requests it follows the request through the database, the automation, the sheet and the Drive folder, so photos stay with the right request."
+    - title: "Private photo storage"
+      text: "Site photos go to private storage in Lovable Cloud, and the team finds them in the request's Drive folder."
+    - title: "A contact check first"
+      text: "Make looks for the contact in Bitrix24 before it adds a new one, so one customer doesn't get a second contact."
+    - title: "Errors in a log"
+      text: "If the AI step or its answer fails, the email scenario writes the error to a log sheet."
+
+result:
+  note: "the result"
+  title: "What changed"
+  text: "This was a new business, so there is no “before” to compare with. The goal was a process that works from the first request."
+  cards:
+    - title: "69 form requests"
+      text: "Saved in the database so far (November 2026)."
+    - title: "Leads in Bitrix24"
+      text: "Requests from the form and from email become leads in one CRM."
+    - title: "Ready to measure"
+      text: "Each form request has marketing attribution, so the funnel can be measured."
+    - title: "No manual transfer"
+      text: "Requests reach Bitrix24 and the team's sheet without copying by hand."
+
+next: solid-plast

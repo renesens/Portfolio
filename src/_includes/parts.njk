@@ -1,0 +1,159 @@
+{#- Building blocks shared by the case pages. Texts come from texts/cases/*.yml -#}
+
+{% macro hero(c, ui, sectionClass="", subWidth="700px") %}
+<section{% if sectionClass %} class="{{ sectionClass }}"{% endif %} style="max-width: 1200px; margin: 0 auto; padding: 40px 24px 72px; display: flex; flex-direction: column; gap: 28px">
+<a href="/#w-work" style="align-self: flex-start; font-size: 15px; color: #5C4F49; text-decoration: none">{{ ui.back }}</a>
+<span style="align-self: flex-start; font-size: 13px; font-weight: 500; background: {{ c.card.tag_color }}; border-radius: 999px; padding: 4px 12px">{{ c.hero.tag }}</span>
+<h1 style="margin: 0; font-family: Fraunces, Georgia, serif; font-weight: 400; font-size: 60px; line-height: 1.05; letter-spacing: -0.02em; max-width: 900px">{{ c.hero.title }}</h1>
+<p style="margin: 0; font-size: 19px; color: #5C4F49; max-width: {{ subWidth }}">{{ c.hero.subtitle }}</p>
+<dl style="margin: 16px 0 0; display: flex; flex-wrap: wrap; gap: 16px">
+<div style="flex: 1 1 240px; background: #F3EBDD; border-radius: 18px; padding: 18px 20px"><dt style="font-size: 13px; color: #7A6B63">{{ c.hero.company_label }}</dt><dd style="margin: 4px 0 0; font-weight: 500">{{ c.hero.company }}</dd></div>
+<div style="flex: 1 1 240px; background: #F3EBDD; border-radius: 18px; padding: 18px 20px"><dt style="font-size: 13px; color: #7A6B63">{{ ui.my_role }}</dt><dd style="margin: 4px 0 0; font-weight: 500">{{ c.hero.role }}</dd></div>
+<div style="flex: 1 1 240px; background: #F3EBDD; border-radius: 18px; padding: 18px 20px"><dt style="font-size: 13px; color: #7A6B63">{{ ui.stack }}</dt><dd style="margin: 4px 0 0; font-weight: 500">{{ c.hero.stack }}</dd></div>
+</dl>
+</section>
+{% endmacro %}
+
+{#- Three rotated sticky notes next to "the problem" -#}
+{% macro stickers(notes, colors=["#FFE08A","#F6C9C0","#D9D3F2"]) %}
+<div aria-hidden="true" style="flex: 0 1 320px; display: flex; flex-direction: column; gap: 14px">
+<div style="background: {{ colors[0] }}; padding: 16px 18px 20px; transform: rotate(-2deg); box-shadow: 0 6px 14px rgba(43,35,32,0.12)"><p style="margin: 0; font-family: Caveat, cursive; font-size: 26px; line-height: 1.15">{{ notes[0] }}</p></div>
+<div style="background: {{ colors[1] }}; padding: 16px 18px 20px; transform: rotate(2deg); box-shadow: 0 6px 14px rgba(43,35,32,0.12); margin-left: 32px"><p style="margin: 0; font-family: Caveat, cursive; font-size: 26px; line-height: 1.15">{{ notes[1] }}</p></div>
+<div style="background: {{ colors[2] }}; padding: 16px 18px 20px; transform: rotate(-1deg); box-shadow: 0 6px 14px rgba(43,35,32,0.12); margin-left: 8px"><p style="margin: 0; font-family: Caveat, cursive; font-size: 26px; line-height: 1.15">{{ notes[2] }}</p></div>
+</div>
+{% endmacro %}
+
+{#- Section label in Caveat + h2 -#}
+{% macro heading(note, title, id, dark=false) %}
+<p style="margin: 0; font-family: Caveat, cursive; font-size: 28px; line-height: 1; color: {% if dark %}#F2A58E{% else %}#B4442E{% endif %}">{{ note }}</p>
+<h2 id="{{ id }}" style="margin: 0; font-family: Fraunces, Georgia, serif; font-weight: 400; font-size: 40px; line-height: 1.12{% if dark %}; color: #FBF6EE{% else %}; color: #2B2320{% endif %}">{{ title }}</h2>
+{% endmacro %}
+
+{#- Numbered steps. accent: true = terracotta number -#}
+{% macro steps(list, extra="") %}
+<ol {{ extra }} style="margin: 8px 0 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 0">
+{%- for s in list %}
+<li style="display: flex; gap: 16px; padding: 16px 0{% if not loop.last %}; border-bottom: 1px solid #E6DACA{% endif %}"><span style="flex: 0 0 32px; height: 32px; border-radius: 50%; background: {% if s.accent %}#B4442E{% else %}#2B2320{% endif %}; color: #FBF6EE; font-size: 14px; font-weight: 600; display: flex; align-items: center; justify-content: center">{{ loop.index }}</span><span><strong style="font-weight: 600">{{ s.title }}</strong> <span style="color: #5C4F49">{{ s.text }}</span></span></li>
+{%- endfor %}
+</ol>
+{% endmacro %}
+
+{#- Bullet list with bold lead-in -#}
+{% macro bullets(list, style="") %}
+<ul style="{{ style }}margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column">
+{%- for s in list %}
+<li style="padding: 14px 0{% if not loop.last %}; border-bottom: 1px solid #E6DACA{% endif %}"><strong style="font-weight: 600">{{ s.title }}</strong> <span style="color: #5C4F49">{{ s.text }}</span></li>
+{%- endfor %}
+</ul>
+{% endmacro %}
+
+{#- Browser-window frame with a screenshot that opens in the lightbox.
+    type "make" = grey padded screenshot (Make, ManyChat); "crm" = cropped 16:9 (Bitrix24) -#}
+{% macro shot(sh, ui, type="make", flex="1 1 100%") %}
+<figure style="flex: {{ flex }}; min-width: 0;{% if type == 'crm' %} max-width: 560px;{% endif %} margin: 0; display: flex; flex-direction: column; gap: 10px">
+<button class="zoom" type="button" data-lb-src="{{ sh.src }}" data-lb-alt="{{ sh.lb_alt or sh.alt }}" data-lb-caption="{{ sh.caption }}" data-lb-type="{{ type }}" aria-label="{{ sh.label or (ui.enlarge + sh.caption) }}" style="font: inherit; padding: 0; border: 1px solid #E6DACA; border-radius: 14px; background: #FFFFFF; cursor: zoom-in; overflow: hidden; display: flex; flex-direction: column; text-align: left{% if type == 'make' %}; width: 100%{% endif %}">
+<span aria-hidden="true" style="display: flex; gap: 6px; padding: 10px 12px; background: #F3EBDD; border-bottom: 1px solid #E6DACA"><span style="width: 9px; height: 9px; border-radius: 50%; background: #D9C9B6"></span><span style="width: 9px; height: 9px; border-radius: 50%; background: #D9C9B6"></span><span style="width: 9px; height: 9px; border-radius: 50%; background: #D9C9B6"></span></span>
+{%- if type == 'crm' %}
+<img src="{{ sh.src }}" alt="{{ sh.alt }}" loading="lazy" style="width: 100%; aspect-ratio: 16 / 9; object-fit: cover; object-position: top left; display: block">
+{%- else %}
+<img src="{{ sh.src }}" alt="{{ sh.alt }}" loading="lazy" style="width: 100%; height: auto; display: block; padding: 12px 8px; box-sizing: border-box; background: #F7F7F7">
+{%- endif %}
+</button>
+<figcaption style="font-size: 14px; color: #7A6B63">{{ sh.caption }}</figcaption>
+</figure>
+{% endmacro %}
+
+{#- Gallery of Make/ManyChat screenshots, full width under the diagram -#}
+{% macro makeGallery(g, ui) %}
+<div style="flex: 1 1 100%; min-width: 0; display: flex; flex-direction: column; gap: 14px">
+<p style="margin: 0; font-size: 14px; font-weight: 600; color: #7A6B63; text-transform: uppercase; letter-spacing: 0.06em">{{ g.label }}</p>
+<div style="display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-start">
+{%- for sh in g.shots %}{{ shot(sh, ui, "make", sh.flex) }}{% endfor %}
+</div>
+</div>
+{% endmacro %}
+
+{#- Gallery of Bitrix24 screenshots -#}
+{% macro crmGallery(g, ui, style="") %}
+<div style="display: flex; flex-direction: column; gap: 20px{{ style }}">
+<p style="margin: 0; font-size: 14px; font-weight: 600; color: #7A6B63; text-transform: uppercase; letter-spacing: 0.06em">{{ g.label }}</p>
+<div style="display: flex; flex-wrap: wrap; gap: 24px">
+{%- for sh in g.shots %}{{ shot(sh, ui, "crm", "1 1 340px") }}{% endfor %}
+</div>
+</div>
+{% endmacro %}
+
+{#- Dark section with 4 cards (QA habit / decisions) -#}
+{% macro darkCards(d, id, divClass="", gridClass="") %}
+<section aria-labelledby="{{ id }}" style="background: #2B2320; color: #F3EBDD">
+<div{% if divClass %} class="{{ divClass }}"{% endif %} style="max-width: 1200px; margin: 0 auto; padding: 96px 24px; display: flex; flex-direction: column; gap: 36px">
+<div style="display: flex; flex-direction: column; gap: 12px; max-width: 720px">
+{{ heading(d.note, d.title, id, true) }}
+<p style="margin: 0; font-size: 17px; color: #D6C9BD">{{ d.text }}</p>
+</div>
+<div{% if gridClass %} class="{{ gridClass }}"{% endif %} style="display: flex; flex-wrap: wrap; gap: 16px">
+{%- for k in d.cards %}
+<div style="flex: 1 1 220px; background: #3D322D; border-radius: 18px; padding: 22px"><p style="margin: 0 0 6px; font-weight: 600; color: #FBF6EE">{{ k.title }}</p><p style="margin: 0; font-size: 15px; color: #D6C9BD">{{ k.text }}</p></div>
+{%- endfor %}
+</div>
+</div>
+</section>
+{% endmacro %}
+
+{#- "What changed" cards. colors: list of backgrounds; basis: card width -#}
+{% macro results(r, id, colors=["#FFF1C7","#E3EEDD","#FBE0D9","#E8E4F7"], basis="200px", bg="", divClass="", gridClass="") %}
+<section aria-labelledby="{{ id }}"{% if bg %} style="background: {{ bg }}"{% endif %}>
+<div{% if divClass %} class="{{ divClass }}"{% endif %} style="max-width: 1200px; margin: 0 auto; padding: 96px 24px; display: flex; flex-direction: column; gap: 32px">
+<div style="display: flex; flex-direction: column; gap: 12px">
+{{ heading(r.note, r.title, id) }}
+{%- if r.text %}
+<p style="margin: 0; font-size: 17px; color: #5C4F49">{{ r.text }}</p>
+{%- endif %}
+</div>
+<div{% if gridClass %} class="{{ gridClass }}"{% endif %} style="display: flex; flex-wrap: wrap; gap: 16px">
+{%- for k in r.cards %}
+<div style="flex: 1 1 {{ basis }}; background: {{ colors[loop.index0 % colors.length] }}; border-radius: 22px; padding: 26px"><p style="margin: 0; font-family: Fraunces, Georgia, serif; font-size: 22px; line-height: 1.25">{{ k.title }}</p><p style="margin: 8px 0 0; font-size: 15px; color: #5C4F49">{{ k.text }}</p></div>
+{%- endfor %}
+</div>
+</div>
+</section>
+{% endmacro %}
+
+{#- Dark "what I took away" quote -#}
+{% macro lesson(l, id) %}
+<section aria-labelledby="{{ id }}" style="background: #2B2320; color: #F3EBDD">
+<div style="max-width: 900px; margin: 0 auto; padding: 96px 24px; display: flex; flex-direction: column; gap: 16px; text-align: center; align-items: center">
+<p style="margin: 0; font-family: Caveat, cursive; font-size: 28px; line-height: 1; color: #F2A58E">{{ l.note }}</p>
+<h2 id="{{ id }}" style="margin: 0; font-family: Fraunces, Georgia, serif; font-weight: 400; font-size: 36px; line-height: 1.25; color: #FBF6EE">{{ l.text }}</h2>
+</div>
+</section>
+{% endmacro %}
+
+{#- Next case + Let's talk -#}
+{% macro nextCase(nextSlug, t, ui, onCream=true, divClass="") %}
+<section aria-label="More"{% if onCream %} style="background: #F3EBDD"{% endif %}>
+<div{% if divClass %} class="{{ divClass }}"{% endif %} style="max-width: 1200px; margin: 0 auto; padding: 88px 24px; display: flex; flex-wrap: wrap; gap: 24px; align-items: stretch">
+<a class="next" href="/work/{{ nextSlug }}/" style="flex: 2 1 480px; text-decoration: none; color: #2B2320; background: {% if onCream %}#FFFDF9{% else %}#F3EBDD{% endif %}; border-radius: 22px; padding: 32px; display: flex; flex-direction: column; gap: 10px">
+<span style="font-size: 14px; color: #7A6B63">{{ ui.next_case }}</span>
+<span style="font-family: Fraunces, Georgia, serif; font-size: 28px; line-height: 1.2">{{ t.cases[nextSlug].hero.title | striptags }}</span>
+<span style="font-size: 15px; color: #B4442E; font-weight: 500; margin-top: auto">{{ ui.read_case }} <span class="arrow" aria-hidden="true">→</span></span>
+</a>
+<div style="flex: 1 1 320px; background: #2B2320; color: #FBF6EE; border-radius: 22px; padding: 32px; display: flex; flex-direction: column; gap: 14px">
+<span style="font-family: Fraunces, Georgia, serif; font-size: 26px; line-height: 1.2">{{ ui.lets_talk }}</span>
+<a class="btn" href="/#w-contact" style="align-self: flex-start; color: #FBF6EE; background: #B4442E; text-decoration: none; padding: 12px 24px; border-radius: 999px; font-weight: 500; margin-top: auto">{{ ui.write_to_me }} <span class="arrow" aria-hidden="true">→</span></a>
+</div>
+</div>
+</section>
+{% endmacro %}
+
+{#- Diagram pieces -#}
+{% macro dNode(n, title, sub, bg="#FFFDF9", badge="#2B2320", badgeColor="#FBF6EE", fs=true) %}<div style="background: {{ bg }}; border-radius: 14px; padding: 12px 14px; display: flex; gap: 12px; align-items: center"><span style="flex: none; width: 30px; height: 30px; border-radius: 50%; background: {{ badge }}; color: {{ badgeColor }}; font-weight: 600;{% if fs %} font-size: 13px;{% endif %} display: flex; align-items: center; justify-content: center">{{ n }}</span><span><strong style="display: block; font-size: 15px; font-weight: 600">{{ title }}</strong>{% if sub %}<span style="color: #5C4F49">{{ sub }}</span>{% endif %}</span></div>{% endmacro %}
+{% macro dQ(n, title, sub, fs=true) %}{{ dNode(n, title, sub, "#E3EEDD", "#2F6B3F", "#FFFFFF", fs) }}{% endmacro %}
+{% macro dLine() %}<span aria-hidden="true" style="width: 2px; height: 14px; background: #CDBFAE; margin-left: 28px"></span>{% endmacro %}
+{% macro dBranch(label) %}<span aria-hidden="true" style="display: flex; align-items: center; gap: 8px; margin-left: 28px; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; color: #7A6B63"><span style="width: 2px; height: 18px; background: #CDBFAE"></span>{{ label }}</span>{% endmacro %}
+{% macro dSide(label, title, sub, bg, labelColor, basis="2 1 140px", pad="12px 14px") %}<div style="flex: {{ basis }}; background: {{ bg }}; border-radius: 14px; padding: {{ pad }}; display: flex; flex-direction: column; justify-content: center"><span style="font-size: 11px; font-weight: 600; letter-spacing: 0.08em; color: {{ labelColor }}">{{ label }}</span><strong style="font-weight: 600">{{ title }}</strong><span style="color: #5C4F49">{{ sub }}</span></div>{% endmacro %}
+{% macro dCheck() %}<svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14"><path d="M2.5 7.5 L5.5 10.5 L11.5 3.5" stroke="#2B2320" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg>{% endmacro %}
+{% macro dFinal(title, sub, fontSize=true) %}<div style="background: #2B2320; border-radius: 14px; padding: 12px 14px; display: flex; gap: 12px; align-items: center"><span style="flex: none; width: 30px; height: 30px; border-radius: 50%; background: #FBF6EE; {% if fontSize %}color: #2B2320; font-weight: 600; font-size: 13px; {% endif %}display: flex; align-items: center; justify-content: center">{{ dCheck() }}</span><span><strong style="display: block; font-size: 15px; font-weight: 600; color: #FBF6EE">{{ title }}</strong><span style="color: #D6C9BD">{{ sub }}</span></span></div>{% endmacro %}
+{% macro dRed(title, sub) %}<div style="background: #B4442E; border-radius: 14px; padding: 12px 14px; color: #FBF6EE"><strong style="font-weight: 600">{{ title }}</strong><span style="display: block; color: #F8D3C8">{{ sub }}</span></div>{% endmacro %}
+{% macro dMerge(label) %}<div aria-hidden="true" style="position: relative; height: 34px"><span class="merge-h" style="position: absolute; left: 28px; right: calc(50% - 38px); top: 0; height: 2px; background: #CDBFAE"></span><span style="position: absolute; left: 28px; top: 0; width: 2px; height: 34px; background: #CDBFAE"></span><span class="merge-h" style="position: absolute; left: 44px; top: 7px; font-family: Caveat, cursive; font-size: 20px; line-height: 1; color: #B4442E">{{ label }}</span></div>{% endmacro %}
+{% macro dNote(text) %}<p style="margin: 14px 0 0; font-family: Caveat, cursive; font-size: 22px; line-height: 1.2; color: #7A6B63">{{ text }}</p>{% endmacro %}

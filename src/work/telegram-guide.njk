@@ -1,0 +1,42 @@
+---
+layout: base.njk
+css: case
+slug: telegram-guide
+permalink: /work/telegram-guide/
+---
+{%- import "parts.njk" as p -%}
+{%- set c = t.cases[slug] -%}{%- set ui = t.case_ui -%}{%- set d = c.diagram -%}
+{{ p.hero(c, ui) }}
+
+<section aria-labelledby="c-problem" style="background: #F3EBDD">
+<div style="max-width: 1200px; margin: 0 auto; padding: 88px 24px; display: flex; flex-wrap: wrap; gap: 56px; align-items: center">
+<div style="flex: 1 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 16px">
+{{ p.heading(c.problem.note, c.problem.title, "c-problem") }}
+{%- for para in c.problem.paragraphs %}
+<p style="margin: 0; font-size: 17px; color: #5C4F49">{{ para }}</p>
+{%- endfor %}
+</div>
+{{ p.stickers(c.problem.stickers) }}
+</div>
+</section>
+
+<section aria-labelledby="c-solution">
+<div style="max-width: 1200px; margin: 0 auto; padding: 96px 24px; display: flex; flex-wrap: wrap; gap: 56px; align-items: flex-start">
+<div style="flex: 1 1 460px; min-width: 0; display: flex; flex-direction: column; gap: 20px">
+{{ p.heading(c.solution.note, c.solution.title, "c-solution") }}
+<p style="margin: 0; font-size: 17px; color: #5C4F49">{{ c.solution.text }}</p>
+{{ p.steps(c.solution.steps) }}
+</div>
+<figure style="flex: 1 1 460px; min-width: 0; margin: 0; display: flex; flex-direction: column; gap: 12px">
+<div role="img" aria-label="{{ d.aria }}" style="background: #F3EBDD; border-radius: 24px; padding: 24px; display: flex; flex-direction: column; font-size: 14px; line-height: 1.4">
+{{ p.dNode(1, d.n1_title, d.n1_text) }}{{ p.dLine() }}{{ p.dNode(2, d.n2_title, d.n2_text) }}{{ p.dLine() }}{{ p.dQ("?", d.q_title, "") }}<div style="display: flex; flex-wrap: wrap; gap: 16px"><div style="flex: 1 1 180px; min-width: 0; display: flex; flex-direction: column">{{ p.dBranch(d.yes_label) }}<div style="background: #E8E4F7; border-radius: 14px; padding: 12px 14px"><strong style="display: block; font-size: 15px; font-weight: 600">{{ d.yes_title }}</strong><span style="color: #5C4F49">{{ d.yes_text }}</span></div><span aria-hidden="true" style="flex: 1; width: 2px; min-height: 14px; background: #CDBFAE; margin-left: 28px"></span></div><div style="flex: 1 1 180px; min-width: 0; display: flex; flex-direction: column">{{ p.dBranch(d.no_label) }}{{ p.dNode(3, d.n3_title, d.n3_text) }}{{ p.dLine() }}{{ p.dRed(d.n4_title, d.n4_text) }}<span aria-hidden="true" style="margin: 6px 0 0 4px; font-family: Caveat, cursive; font-size: 20px; line-height: 1; color: #B4442E">{{ d.back }}</span>{{ p.dLine() }}</div></div>{{ p.dMerge(d.merge) }}{{ p.dFinal(d.n5_title, d.n5_text) }}
+</div>
+<figcaption style="font-size: 14px; color: #7A6B63">{{ d.caption }}</figcaption>
+</figure>
+{{ p.makeGallery(c.gallery, ui) }}
+</div>
+</section>
+
+{{ p.results(c.result, "c-result") }}
+
+{{ p.nextCase(c.next, t, ui, true) }}

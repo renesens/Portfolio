@@ -1,0 +1,76 @@
+---
+layout: base.njk
+css: case-email
+slug: email-bitrix24
+permalink: /work/email-bitrix24/
+---
+{%- import "parts.njk" as p -%}
+{%- set c = t.cases[slug] -%}{%- set ui = t.case_ui -%}{%- set d = c.diagram -%}
+{{ p.hero(c, ui, "hero", "680px") }}
+
+<section aria-labelledby="c-problem" style="background: #F3EBDD">
+<div class="sec cols" style="max-width: 1200px; margin: 0 auto; padding: 88px 24px; display: flex; flex-wrap: wrap; gap: 56px; align-items: center">
+<div style="flex: 1 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 16px">
+{{ p.heading(c.problem.note, c.problem.title, "c-problem") }}
+{%- for para in c.problem.paragraphs %}
+<p style="margin: 0; font-size: 17px; color: #5C4F49">{{ para }}</p>
+{%- endfor %}
+</div>
+{{ p.stickers(c.problem.stickers) }}
+</div>
+</section>
+
+<section aria-labelledby="c-solution">
+<div class="sec cols" style="max-width: 1200px; margin: 0 auto; padding: 96px 24px; display: flex; flex-wrap: wrap; gap: 56px; align-items: flex-start">
+<div style="flex: 1 1 460px; min-width: 0; display: flex; flex-direction: column; gap: 20px">
+{{ p.heading(c.solution.note, c.solution.title, "c-solution") }}
+<p style="margin: 0; font-size: 17px; color: #5C4F49">{{ c.solution.text }}</p>
+<button class="steps-toggle" type="button" aria-expanded="false" aria-controls="case-steps" data-show="{{ c.solution.steps_show }}" data-hide="{{ c.solution.steps_hide }}">{{ c.solution.steps_show }}</button>
+{{ p.steps(c.solution.steps, 'id="case-steps" class="steps"') }}
+</div>
+<figure style="flex: 1 1 460px; min-width: 0; margin: 0; display: flex; flex-direction: column; gap: 12px">
+<div role="img" aria-label="{{ d.aria }}" style="background: #F3EBDD; border-radius: 24px; padding: 24px; display: flex; flex-direction: column; font-size: 14px; line-height: 1.4">
+{{ p.dNode(1, d.n1_title, d.n1_text) }}
+{{ p.dLine() }}
+{{ p.dNode(2, d.n2_title, d.n2_text) }}
+{{ p.dLine() }}
+<div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: stretch">
+<div style="flex: 3 1 220px; background: #E3EEDD; border-radius: 14px; padding: 12px 14px; display: flex; gap: 12px; align-items: center"><span style="flex: none; width: 30px; height: 30px; border-radius: 50%; background: #2F6B3F; color: #FFFFFF; font-weight: 600; display: flex; align-items: center; justify-content: center">?</span><span><strong style="display: block; font-size: 15px; font-weight: 600">{{ d.q1_title }}</strong><span style="color: #5C4F49">{{ d.q1_text }}</span></span></div>
+{{ p.dSide(d.q1_yes_label, d.q1_yes_title, d.q1_yes_text, "#EAE2D6", "#7A6B63") }}
+</div>
+{{ p.dBranch(d.no_label) }}
+<div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: stretch">
+<div style="flex: 3 1 220px; background: #E3EEDD; border-radius: 14px; padding: 12px 14px; display: flex; gap: 12px; align-items: center"><span style="flex: none; width: 30px; height: 30px; border-radius: 50%; background: #2F6B3F; color: #FFFFFF; font-weight: 600; display: flex; align-items: center; justify-content: center">?</span><span><strong style="display: block; font-size: 15px; font-weight: 600">{{ d.q2_title }}</strong><span style="color: #5C4F49">{{ d.q2_text }}</span></span></div>
+{{ p.dSide(d.q2_yes_label, d.q2_yes_title, d.q2_yes_text, "#E8E4F7", "#5B4E8C") }}
+</div>
+{{ p.dBranch(d.no_label) }}
+{{ p.dQ("?", d.q3_title, d.q3_text, false) }}
+{{ p.dLine() }}
+<div style="display: flex; flex-wrap: wrap; gap: 8px">
+<div style="flex: 1 1 160px; background: #B4442E; border-radius: 14px; padding: 12px 14px; color: #FBF6EE"><span style="display: block; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; color: #F8D3C8">{{ d.yes_label }}</span><strong style="font-weight: 600">{{ d.q3_yes }}</strong></div>
+<div style="flex: 1 1 160px; background: #B4442E; border-radius: 14px; padding: 12px 14px; color: #FBF6EE"><span style="display: block; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; color: #F8D3C8">{{ d.no_label }}</span><strong style="font-weight: 600">{{ d.q3_no }}</strong></div>
+</div>
+{{ p.dLine() }}
+{{ p.dFinal(d.final_title, d.final_text, false) }}
+{{ p.dNote(d.note) }}
+</div>
+<figcaption style="font-size: 14px; color: #7A6B63">{{ d.caption }}</figcaption>
+</figure>
+
+{%- set sh = c.gallery.shot %}
+<figure style="flex: 1 1 100%; min-width: 0; margin: 0; display: flex; flex-direction: column; gap: 10px">
+<p style="margin: 0 0 6px; font-size: 14px; font-weight: 600; color: #7A6B63; text-transform: uppercase; letter-spacing: 0.06em">{{ c.gallery.label }}</p>
+<button class="zoom" type="button" data-lb-src="{{ sh.src }}" data-lb-alt="{{ sh.lb_alt }}" data-lb-caption="{{ sh.caption }}" data-lb-type="make" aria-label="{{ sh.label }}" style="font: inherit; padding: 0; border: 1px solid #E6DACA; border-radius: 14px; background: #FFFFFF; cursor: zoom-in; overflow: hidden; display: flex; flex-direction: column; text-align: left">
+<span aria-hidden="true" style="display: flex; gap: 6px; padding: 10px 12px; background: #F3EBDD; border-bottom: 1px solid #E6DACA"><span style="width: 9px; height: 9px; border-radius: 50%; background: #D9C9B6"></span><span style="width: 9px; height: 9px; border-radius: 50%; background: #D9C9B6"></span><span style="width: 9px; height: 9px; border-radius: 50%; background: #D9C9B6"></span></span>
+<img src="{{ sh.src }}" alt="{{ sh.alt }}" loading="lazy" style="width: 100%; height: auto; display: block; padding: 12px 8px; box-sizing: border-box; background: #F7F7F7">
+</button>
+<figcaption style="font-size: 14px; color: #7A6B63">{{ sh.caption }}</figcaption>
+</figure>
+</div>
+</section>
+
+{{ p.darkCards(c.qa, "c-qa", "sec", "grid-4") }}
+
+{{ p.results(c.result, "c-result", basis="240px", divClass="sec", gridClass="grid-4 results") }}
+
+{{ p.nextCase(c.next, t, ui, true, "sec") }}

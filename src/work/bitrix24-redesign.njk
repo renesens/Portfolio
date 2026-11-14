@@ -1,0 +1,74 @@
+---
+layout: base.njk
+css: case
+slug: bitrix24-redesign
+permalink: /work/bitrix24-redesign/
+---
+{%- import "parts.njk" as p -%}
+{%- set c = t.cases[slug] -%}{%- set ui = t.case_ui -%}{%- set a = c.after -%}
+{{ p.hero(c, ui) }}
+
+<section aria-labelledby="b-problem" style="background: #F3EBDD">
+<div style="max-width: 1200px; margin: 0 auto; padding: 88px 24px; display: flex; flex-wrap: wrap; gap: 56px; align-items: center">
+<div style="flex: 1 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 16px">
+{{ p.heading(c.problem.note, c.problem.title, "b-problem") }}
+{%- for para in c.problem.paragraphs %}
+<p style="margin: 0; font-size: 17px; color: #5C4F49">{{ para }}</p>
+{%- endfor %}
+</div>
+{%- set bi = c.problem.before_items %}
+<div aria-label="{{ c.problem.before_aria }}" role="img" style="flex: 0 1 340px; background: #FFFDF9; border-radius: 22px; padding: 22px; display: flex; flex-direction: column; gap: 8px">
+<p style="margin: 0 0 6px; font-size: 13px; font-weight: 600; color: #7A6B63; text-transform: uppercase; letter-spacing: 0.06em">{{ c.problem.before_label }}</p>
+<span style="background: #FFF1C7; border-radius: 10px; padding: 8px 12px; font-size: 14px">{{ bi[0] }}</span>
+<span style="background: #FBE0D9; border-radius: 10px; padding: 8px 12px; font-size: 14px; margin-left: 14px">{{ bi[1] }}</span>
+<span style="background: #E3EEDD; border-radius: 10px; padding: 8px 12px; font-size: 14px; margin-left: 4px">{{ bi[2] }}</span>
+<span style="background: #E8E4F7; border-radius: 10px; padding: 8px 12px; font-size: 14px; margin-left: 20px">{{ bi[3] }}</span>
+<span style="background: #FFF1C7; border-radius: 10px; padding: 8px 12px; font-size: 14px; margin-left: 8px">{{ bi[4] }}</span>
+<span style="background: #F3EBDD; border-radius: 10px; padding: 8px 12px; font-size: 14px; margin-left: 16px">{{ bi[5] }}</span>
+</div>
+</div>
+</section>
+
+<section aria-labelledby="b-solution">
+<div style="max-width: 1200px; margin: 0 auto; padding: 96px 24px; display: flex; flex-direction: column; gap: 44px">
+<div style="display: flex; flex-wrap: wrap; gap: 56px; align-items: flex-start">
+<div style="flex: 1 1 460px; min-width: 0; display: flex; flex-direction: column; gap: 16px">
+{{ p.heading(c.solution.note, c.solution.title, "b-solution") }}
+{%- for para in c.solution.paragraphs %}
+<p style="margin: 0; font-size: 17px; color: #5C4F49">{{ para }}</p>
+{%- endfor %}
+</div>
+{{ p.bullets(c.solution.bullets, "flex: 1 1 460px; min-width: 0; ") }}
+</div>
+
+<div aria-label="{{ a.aria }}" role="img" style="display: flex; flex-wrap: wrap; gap: 16px; align-items: center">
+<div style="flex: 1 1 280px; background: #FFF1C7; border-radius: 22px; padding: 24px; display: flex; flex-direction: column; gap: 10px">
+<p style="margin: 0; font-size: 13px; font-weight: 600; color: #7A6B63; text-transform: uppercase; letter-spacing: 0.06em">{{ a.lead_label }}</p>
+<p style="margin: 0; font-family: Fraunces, Georgia, serif; font-size: 24px">{{ a.lead_title }}</p>
+<p style="margin: 0; font-size: 15px; color: #5C4F49">{{ a.lead_text }}</p>
+</div>
+<svg class="split-arrow" aria-hidden="true" width="64" height="280" viewBox="0 0 64 280" style="flex: none"><text x="32" y="144" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" fill="#B4442E">{{ a.arrow }}</text><path d="M4 140 C28 140 34 70 58 70 M52 64 L58 70 L52 76" fill="none" stroke="#B4442E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path><path d="M4 140 C28 140 34 210 58 210 M52 204 L58 210 L52 216" fill="none" stroke="#B4442E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+<p class="split-arrow-m" aria-hidden="true" style="margin: 0; flex: 1 1 100%; font-family: Caveat, cursive; font-size: 24px; line-height: 1; color: #B4442E">↓ {{ a.arrow }}</p>
+<div style="flex: 1 1 320px; min-width: 0; display: flex; flex-direction: column; gap: 12px">
+<div style="background: #E3EEDD; border-radius: 22px; padding: 22px 24px; display: flex; flex-direction: column; gap: 8px">
+<p style="margin: 0; font-size: 13px; font-weight: 600; color: #7A6B63; text-transform: uppercase; letter-spacing: 0.06em">{{ a.deal_label }}</p>
+<p style="margin: 0; font-family: Fraunces, Georgia, serif; font-size: 24px">{{ a.deal1_title }}</p>
+<p style="margin: 0; font-size: 15px; color: #5C4F49">{{ a.deal1_text }}</p>
+</div>
+<div style="background: #E8E4F7; border-radius: 22px; padding: 22px 24px; display: flex; flex-direction: column; gap: 8px">
+<p style="margin: 0; font-size: 13px; font-weight: 600; color: #7A6B63; text-transform: uppercase; letter-spacing: 0.06em">{{ a.deal_label }}</p>
+<p style="margin: 0; font-family: Fraunces, Georgia, serif; font-size: 24px">{{ a.deal2_title }}</p>
+<p style="margin: 0; font-size: 15px; color: #5C4F49">{{ a.deal2_text }}</p>
+</div>
+</div>
+</div>
+
+{{ p.crmGallery(c.gallery, ui, "; margin-top: 16px") }}
+</div>
+</section>
+
+{{ p.results(c.result, "b-result", colors=["#FFFDF9"], basis="240px", bg="#F3EBDD") }}
+
+{{ p.lesson(c.lesson, "b-lesson") }}
+
+{{ p.nextCase(c.next, t, ui, false) }}

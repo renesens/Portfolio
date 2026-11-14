@@ -1,0 +1,14 @@
+{
+  "name": "renata-portfolio",
+  "private": true,
+  "description": "Portfolio website of Renata Cherniavska",
+  "scripts": {
+    "build": "eleventy",
+    "start": "eleventy --serve"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.2",
+    "js-yaml": "^4.1.0"
+  },
+  "type": "module"
+}

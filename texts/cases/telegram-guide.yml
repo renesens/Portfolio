@@ -1,0 +1,96 @@
+# Кейс: Telegram-бот для гида по Праге. Тексты по порядку сверху вниз.
+
+meta:
+  title: "A guide got ~10 hours a week back — Renata Cherniavska"
+  description: "A Telegram booking bot with AI answers and gentle reminders, for a private tour guide in Prague."
+
+card:
+  cat: ai
+  tag: "AI chatbots · Prague tour guide"
+  tag_color: "#E8E4F7"
+  title: "A guide got ~10 hours a week back"
+  text: "Telegram booking with AI FAQ and gentle reminders that recover ~25% of stuck bookings."
+  stack: "Telegram · ManyChat · Make"
+
+hero:
+  tag: "AI chatbots · Prague tour guide"
+  title: "A guide got <em>~10 hours a week</em> back"
+  subtitle: "A Telegram booking bot with AI answers and gentle reminders, for a private tour guide in Prague."
+  company_label: "Client"
+  company: "Private tour guide, Prague"
+  role: "Solo project: routine audit, booking flow map in Miro, Make scenarios, data structure, handover materials"
+  stack: "Telegram · ManyChat · Make · OpenAI · Calendly · Google Sheets"
+
+problem:
+  note: "the problem"
+  title: "Up to 3 hours a day went to chats and a notebook"
+  paragraphs:
+    - "The guide copied data from chats into her notebook and answered the same questions again and again."
+    - "Answers came late. And clients who clicked “Book” but didn't choose a time were simply lost."
+  stickers: ["Up to 3 hours a day", "The same questions", "Clicked “Book”, then gone"]
+
+solution:
+  note: "what I built"
+  title: "A bot that keeps the booking moving"
+  text: "I looked at the guide's daily routine first and mapped the booking and chat flow in Miro. Then I built it in ManyChat and Make."
+  steps:
+    - title: "Track every click."
+      text: "The bot records each click in the funnel."
+    - title: "Answer typical questions."
+      text: "The AI FAQ answers about 90% of them."
+    - title: "Find stuck bookings."
+      text: "If a client clicks “Book” and picks a time, the booking goes through Calendly. If not, the bot marks this client as stuck."
+      accent: true
+    - title: "Send a gentle reminder."
+      text: "A short message brings the client back to the booking."
+      accent: true
+    - title: "Save the data."
+      text: "All data goes to Google Sheets in a clear structure, so nobody copies it by hand."
+
+diagram:
+  aria: "Booking flow in Telegram. Every click is tracked and the AI FAQ answers typical questions. If a client clicks Book and picks a time, the booking continues. If not, the client is marked as stuck and gets a gentle reminder that leads back to the booking. Data from both branches goes to Google Sheets."
+  n1_title: "Client in the Telegram bot"
+  n1_text: "Every click is tracked"
+  n2_title: "AI FAQ"
+  n2_text: "Answers about 90% of typical questions"
+  q_title: "Clicked “Book”. Picked a time?"
+  yes_label: "YES"
+  yes_title: "Booked in Calendly"
+  yes_text: "No reminder needed"
+  no_label: "NO"
+  n3_title: "Marked as “stuck”"
+  n3_text: "The bot sees where the client stopped"
+  n4_title: "4 · Gentle reminder"
+  n4_text: "Brings the client back to the booking"
+  back: "↺ back to “Book”"
+  merge: "both branches are saved"
+  n5_title: "5 · Google Sheets"
+  n5_text: "Clicks, bookings and reminders in one clear structure"
+  caption: "The flow, simplified."
+
+gallery:
+  label: "In ManyChat and Make · click to enlarge"
+  shots:
+    - src: /assets/img/cases/telegram-manychat.png
+      alt: "The Welcome Message flow in ManyChat: tours, booking, questions and reviews branches with messages and photos of Prague"
+      caption: "The bot's main flow in ManyChat."
+      flex: "0 1 420px"
+    - src: /assets/img/cases/telegram-calendly-scenario.png
+      alt: "Make scenario: a Calendly event goes to a router, then Google Sheets, ManyChat fields and a Telegram message"
+      caption: "The Calendly scenario: a new or canceled booking updates Google Sheets and ManyChat and sends a Telegram message."
+      flex: "1 1 480px"
+
+result:
+  note: "the result"
+  title: "What changed"
+  cards:
+    - title: "~10 hours a week"
+      text: "Saved on routine messages."
+    - title: "~25% of stuck bookings"
+      text: "Came back after the reminders."
+    - title: "~90% of typical questions"
+      text: "Answered by the AI FAQ."
+    - title: "The full funnel"
+      text: "The guide can see each step from the first click to the booking."
+
+next: psychologist-ai

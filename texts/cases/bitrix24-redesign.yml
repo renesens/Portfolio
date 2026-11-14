@@ -1,0 +1,90 @@
+# Кейс: редизайн Bitrix24. Тексты по порядку сверху вниз.
+
+meta:
+  title: "One overloaded pipeline became three clear ones — Renata Cherniavska"
+  description: "I rebuilt Bitrix24 around the real sales process, not around a standard CRM template."
+
+card:
+  cat: crm
+  tag: "CRM · Aquinium"
+  tag_color: "#E3EEDD"
+  title: "One overloaded Bitrix24 pipeline became three"
+  text: "I mapped the real sales process in Miro first. Now managers see the stage and the next step for every lead."
+  stack: "Bitrix24 · Make · REST API"
+
+hero:
+  tag: "CRM · Aquinium s.r.o"
+  title: "One overloaded pipeline became <em>three clear ones</em>"
+  subtitle: "I rebuilt Bitrix24 around the real sales process, not around a standard CRM template."
+  company_label: "Company"
+  company: "Aquinium s.r.o (in-house) — pool & spa equipment, Prague"
+  role: "Process analysis, CRM design, automation, testing, manager instructions"
+  stack: "Bitrix24 · Make · REST API · website forms · Microsoft 365"
+
+problem:
+  note: "the problem"
+  title: "Everything lived in one lead pipeline"
+  paragraphs:
+    - "Requests came from the website, ads, email, phone and partners. New requests, quotes, talks with clients, postponed deals, service and complaints were all in one pipeline."
+    - "So it was hard for the sales team to see who to answer first and what to do next."
+  before_aria: "Before: one pipeline holding every type of request"
+  before_label: "Before · one pipeline"
+  before_items: ["New request", "Complaint", "Quote sent", "Service request", "Negotiation", "Postponed deal"]
+
+solution:
+  note: "what I did"
+  title: "Mapping the process before touching the CRM"
+  paragraphs:
+    - "I went through the old Bitrix24 setup and real requests. Then I mapped the real sales process in Miro: how a request comes in, how it is qualified, the follow-up and the result."
+    - "I built the new CRM structure from this map."
+  bullets:
+    - title: "Lead → Deal."
+      text: "Qualified leads become deals. Spam and duplicates are closed with a clear reason."
+    - title: "Website requests via Make."
+      text: "Before a new contact is created, Make searches by phone number, so there are no duplicates."
+    - title: "Tasks and reminders."
+      text: "Tasks for the first contact, follow-ups after a quote, deposit tracking and automatic deal names."
+    - title: "Tested and documented."
+      text: "I tested the CRM logic and wrote instructions for the managers."
+
+# Схема «после»
+after:
+  aria: "After: a lead pipeline for first contact and qualification. Qualified leads move to two deal pipelines: Aquinium Sales, and Service / Complaints."
+  lead_label: "Lead pipeline"
+  lead_title: "Leads"
+  lead_text: "First contact and qualification"
+  arrow: "qualified"
+  deal_label: "Deal pipeline"
+  deal1_title: "Aquinium Sales"
+  deal1_text: "Quote, negotiation, deposit, outcome"
+  deal2_title: "Service / Complaints"
+  deal2_text: "Service requests and complaints"
+
+gallery:
+  label: "In Bitrix24 · click to enlarge"
+  shots:
+    - src: /assets/img/cases/bitrix24-pipelines.png
+      alt: "Bitrix24 settings with two deal pipelines, Sales and Service / Complaints, each with its own stages"
+      caption: "The two deal pipelines: Sales and Service / Complaints (stage names in Czech). Leads have their own pipeline."
+    - src: /assets/img/cases/bitrix24-rules.png
+      alt: "Bitrix24 automation rules in the sales pipeline: tasks and checks for the responsible person at each stage"
+      caption: "Automation rules in the sales pipeline: tasks and checks for each stage."
+
+result:
+  note: "the result"
+  title: "What changed"
+  cards:
+    - title: "The CRM matches the real process"
+      text: "The new pipelines are in place and working."
+    - title: "A clear next step"
+      text: "Managers see the stage and next step for every lead and deal."
+    - title: "Structured data"
+      text: "Customer, product and source are saved in fields, not in comments."
+    - title: "Ready for reporting"
+      text: "The data can be used for reports by source, stage and reason for loss."
+
+lesson:
+  note: "what I took away"
+  text: "A CRM setup starts with the real business process. If stages, owners and rules are not clear, new fields and automations won't help."
+
+next: email-bitrix24

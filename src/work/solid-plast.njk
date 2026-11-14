@@ -1,0 +1,89 @@
+---
+layout: base.njk
+css: case
+slug: solid-plast
+permalink: /work/solid-plast/
+---
+{%- import "parts.njk" as p -%}
+{%- set c = t.cases[slug] -%}{%- set ui = t.case_ui -%}
+{{ p.hero(c, ui) }}
+
+<section aria-labelledby="s-task" style="background: #F3EBDD">
+<div style="max-width: 1200px; margin: 0 auto; padding: 88px 24px; display: flex; flex-wrap: wrap; gap: 56px; align-items: center">
+<div style="flex: 1 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 16px">
+{{ p.heading(c.task.note, c.task.title, "s-task") }}
+{%- for para in c.task.paragraphs %}
+<p style="margin: 0; font-size: 17px; color: #5C4F49">{{ para }}</p>
+{%- endfor %}
+</div>
+{{ p.stickers(c.task.stickers, ["#FFE08A","#CFE3C8","#F6C9C0"]) }}
+</div>
+</section>
+
+<section aria-labelledby="s-crm">
+<div style="max-width: 1200px; margin: 0 auto; padding: 96px 24px; display: flex; flex-direction: column; gap: 64px">
+<div style="display: flex; flex-wrap: wrap; gap: 56px; align-items: center">
+<div style="flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 16px">
+{{ p.heading(c.solution.note, c.solution.title, "s-crm") }}
+<p style="margin: 0; font-size: 17px; color: #5C4F49">{{ c.solution.text }}</p>
+{{ p.bullets(c.solution.bullets, "") | replace('style="margin: 0; padding: 0;', 'style="margin: 8px 0 0; padding: 0;') }}
+</div>
+<figure style="flex: 1 1 460px; min-width: 0; margin: 0; display: flex; flex-direction: column; gap: 12px">
+{%- set stepBg = ["#FFF1C7","#FFFDF9","#E3EEDD","#FFFDF9"] %}
+<ol aria-label="{{ c.path.aria }}" style="margin: 0; padding: 28px; list-style: none; background: #F3EBDD; border-radius: 24px; display: flex; flex-direction: column">
+{%- for s in c.path.steps %}
+{%- if not loop.last %}
+<li style="display: flex; gap: 16px; align-items: stretch">
+<span style="display: flex; flex-direction: column; align-items: center"><span style="width: 36px; height: 36px; border-radius: 50%; background: #2B2320; color: #FBF6EE; font-size: 14px; font-weight: 600; display: flex; align-items: center; justify-content: center; flex: none">{{ loop.index }}</span><span aria-hidden="true" style="flex: 1; width: 2px; background: #D9C9B6; min-height: 14px"></span></span>
+<span style="flex: 1; background: {{ stepBg[loop.index0 % 4] }}; border-radius: 14px; padding: 12px 16px; margin-bottom: 12px"><span style="display: block; font-weight: 600">{{ s.title }}</span><span style="display: block; font-size: 14px; color: #5C4F49">{{ s.text }}</span></span>
+</li>
+{%- else %}
+<li style="display: flex; gap: 16px; align-items: stretch">
+<span style="display: flex; flex-direction: column; align-items: center"><span style="width: 36px; height: 36px; border-radius: 50%; background: #B4442E; color: #FBF6EE; font-size: 14px; font-weight: 600; display: flex; align-items: center; justify-content: center; flex: none">{{ loop.index }}</span></span>
+<span style="flex: 1; background: #2B2320; border-radius: 14px; padding: 12px 16px"><span style="display: block; font-weight: 600; color: #FBF6EE">{{ s.title }}</span><span style="display: block; font-size: 14px; color: #D6C9BD">{{ s.text }}</span></span>
+</li>
+{%- endif %}
+{%- endfor %}
+</ol>
+<figcaption style="font-size: 14px; color: #7A6B63">{{ c.path.caption }}</figcaption>
+</figure>
+</div>
+
+{{ p.crmGallery(c.gallery, ui) }}
+</div>
+</section>
+
+{%- set dm = c.domain %}
+<section aria-labelledby="s-domain" style="background: #F3EBDD">
+<div style="max-width: 1200px; margin: 0 auto; padding: 96px 24px; display: flex; flex-wrap: wrap; gap: 56px; align-items: center">
+<div style="flex: 1 1 400px; min-width: 0; display: flex; flex-direction: column; gap: 16px">
+{{ p.heading(dm.note, dm.title, "s-domain") }}
+<p style="margin: 0; font-size: 17px; color: #5C4F49">{{ dm.text }}</p>
+</div>
+<figure style="flex: 1 1 540px; min-width: 0; margin: 0; display: flex; flex-direction: column; gap: 12px">
+<div style="background: #FFFDF9; border-radius: 24px; padding: 24px; display: flex; flex-direction: column; gap: 18px">
+<ol aria-label="{{ dm.aria }}" style="margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 12px">
+{%- for s in dm.steps %}
+{%- if not loop.last %}
+<li style="background: #F3EBDD; border-radius: 14px; padding: 14px; display: flex; flex-direction: column; gap: 6px"><span style="font-family: Caveat, cursive; font-size: 24px; line-height: 1; color: #B4442E">{{ loop.index }}</span><span style="font-weight: 600; line-height: 1.3">{{ s.title }}</span><span style="font-size: 13px; color: #5C4F49; line-height: 1.4">{{ s.text }}</span></li>
+{%- else %}
+<li style="background: #2B2320; border-radius: 14px; padding: 14px; display: flex; flex-direction: column; gap: 6px"><span style="font-family: Caveat, cursive; font-size: 24px; line-height: 1; color: #F2A58E">{{ loop.index }}</span><span style="font-weight: 600; line-height: 1.3; color: #FBF6EE">{{ s.title }}</span><span style="font-size: 13px; color: #D6C9BD; line-height: 1.4">{{ s.text }}</span></li>
+{%- endif %}
+{%- endfor %}
+</ol>
+<div style="display: flex; flex-wrap: wrap; gap: 10px">
+{%- for ck in dm.checks %}
+<span style="display: inline-flex; align-items: center; gap: 8px; background: #E3EEDD; border-radius: 999px; padding: 6px 14px; font-size: 14px; font-weight: 500"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14"><path d="M2.5 7.5 L5.5 10.5 L11.5 3.5" stroke="#2F6B3F" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg>{{ ck }}</span>
+{%- endfor %}
+</div>
+</div>
+<figcaption style="font-size: 14px; color: #7A6B63">{{ dm.caption }}</figcaption>
+</figure>
+</div>
+</section>
+
+{{ p.darkCards(c.qa, "s-qa") }}
+
+{{ p.results(c.result, "s-result", basis="240px") }}
+
+{{ p.nextCase(c.next, t, ui, true) }}

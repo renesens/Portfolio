@@ -1,0 +1,101 @@
+# Кейс: AI-система для психолога. Тексты по порядку сверху вниз.
+# Британское написание (recognise, practising) оставлено намеренно.
+
+meta:
+  title: "A bot that knows when to call a human — Renata Cherniavska"
+  description: "An AI system for a psychologist. It answers questions, sells products and books sessions, and it passes sensitive questions to a person."
+
+card:
+  cat: ai
+  tag: "AI chatbots · Psychologist"
+  tag_color: "#E8E4F7"
+  title: "A bot that knows when to call a human"
+  text: "~40% less manual work, first response in ~10 minutes — sensitive questions go to a person."
+  stack: "ManyChat · OpenAI · Stripe"
+
+hero:
+  tag: "AI chatbots · Psychologist"
+  title: "A bot that knows when to <em>call a human</em>"
+  subtitle: "An AI system for a psychologist. It answers questions, sells products and books sessions, and it passes sensitive questions to a person."
+  company_label: "Client"
+  company: "Practising psychologist"
+  role: "System design, build in ManyChat and Make, integrations"
+  stack: "ManyChat · OpenAI · Make · Stripe · Google Sheets"
+
+problem:
+  note: "the problem"
+  title: "Too much time went to direct messages"
+  paragraphs:
+    - "The expert spent a lot of time on manual chats in direct messages and on routine tasks."
+    - "The goal was a “digital office”: warm up the audience, answer difficult questions, sell digital products and manage the schedule, without the expert being there all the time."
+  stickers: ["Chats — by hand", "Routine — by hand", "Expert — always needed"]
+
+solution:
+  note: "what I built"
+  title: "One system around the chat"
+  text: "I mapped the whole system in Miro first. Then I built it in ManyChat and Make and connected the other tools."
+  steps:
+    - title: "Recognise the client."
+      text: "A keyword funnel recognises the client, qualifies them and makes a personal offer."
+    - title: "Answer and diagnose."
+      text: "OpenAI answers from the expert's knowledge base. An AI diagnostic reads the client's answers and gives personal recommendations."
+    - title: "Call a human."
+      text: "Complex, unusual and sensitive questions go to a real person."
+      accent: true
+    - title: "Sell and deliver."
+      text: "After a Stripe payment, the PDF is sent right away. For physical products, the courier gets a notification."
+    - title: "Book a session."
+      text: "The bot checks free slots in real time, holds the slot and sends a reminder 24 hours before, to reduce no-shows."
+    - title: "Save the data."
+      text: "Leads, orders and diagnostic data go to Google Sheets for reporting."
+
+diagram:
+  aria: "AI system flow. The keyword funnel recognises the client. OpenAI answers from the knowledge base and runs the diagnostic. Complex, unusual or sensitive questions go to a real person. Otherwise the bot sells and delivers products or books a session. Data goes to Google Sheets."
+  n1_title: "Keyword funnel"
+  n1_text: "Recognises and qualifies the client"
+  n2_title: "AI consultant and diagnostic"
+  n2_text: "Answers from the expert's knowledge base"
+  q_title: "Complex or sensitive?"
+  q_text: "Unusual questions too"
+  yes_label: "YES →"
+  yes_title: "A real person answers"
+  yes_text: "The chat goes to a person"
+  no_label: "NO"
+  n4_title: "Sell and deliver"
+  n4_text: "Stripe, then PDF or courier"
+  n5_title: "Book a session"
+  n5_text: "Free slots, reminder 24 h before"
+  n6_title: "6 · Google Sheets"
+  n6_text: "Leads, orders and diagnostic data"
+  caption: "The system, simplified."
+
+gallery:
+  label: "In Make and ManyChat · click to enlarge"
+  shots:
+    - src: /assets/img/cases/psychologist-make.png
+      alt: "Three Make scenarios with webhooks, routers, Google Sheets, OpenAI, ManyChat and Telegram modules"
+      caption: "Three of the Make scenarios behind the system."
+      flex: "1 1 420px"
+    - src: /assets/img/cases/psychologist-manychat.png
+      alt: "ManyChat automations list with keyword, FAQ, reminder, consultation booking and product delivery flows"
+      caption: "The ManyChat automations: keywords, FAQ, reminders, booking and delivery."
+      flex: "1 1 420px"
+
+lesson:
+  note: "what I took away"
+  text: "AI works best when it supports a clear process. As a separate chatbot, it does much less."
+
+result:
+  note: "the result"
+  title: "What changed"
+  cards:
+    - title: "~40% less manual work"
+      text: "On processing requests."
+    - title: "~10 minutes"
+      text: "First response time."
+    - title: "+40% engagement"
+      text: "After the personal AI diagnostic was added."
+    - title: "Open when the expert is offline"
+      text: "The bot still sells and books."
+
+next: bitrix24-redesign
