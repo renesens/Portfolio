@@ -2,11 +2,12 @@
 # <em>…</em> — курсив терракотовым цветом в заголовке.
 
 meta:
-  title: "Renata Cherniavska — I turn messy processes into simple, reliable systems"
+  title: "Renata Cherniavska — Business & AI Automation Specialist in Prague"
   description: "Engineer by training, QA by habit. I connect CRM, email, chat and forms for service businesses — and add AI only where it actually helps."
 
 # ── Первый экран ──
 hero:
+  role: "Business & AI Automation Specialist"
   hello: "Hi, I'm Renata."
   title: "I turn messy processes into <em>simple, reliable</em> systems."
   text: "Engineer by training, QA by habit. I connect CRM, email, chat and forms for service businesses — and add AI only where it actually helps."
