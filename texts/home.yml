@@ -110,7 +110,7 @@ contact:
   title: "Let's talk"
   text: "A role, a project or just a question — send me a few lines. I read every message myself."
   note: "psst — this form is my automation too"
-  flow: ["Form", "n8n webhook", "Telegram", "Google Sheets", "Auto-reply"]
+  flow: ["Form", "n8n webhook", "Telegram"]
   flow_caption: "This form runs on my own n8n workflow."
   linkedin: "LinkedIn"
   form:
@@ -121,7 +121,12 @@ contact:
     topics: ["Job opportunity", "Project", "Other"]
     message: "Message"
     button: "Send message"
-    # Сообщения после отправки (новые тексты — нужно ваше согласие)
+    # Текст на кнопке, пока сообщение отправляется
     sending: "Sending…"
-    success: "Thank you! Your message is on its way. I'll reply soon."
-    error: "Something went wrong. Please email me at renata.cherniavska@gmail.com."
+    # Окно (поп-ап) после отправки
+    success_title: "Thank you!"
+    success_text: "Your message is on its way. I'll reply soon."
+    # Окно при ошибке; после текста сайт сам добавит email из site.yml
+    error_title: "Something went wrong."
+    error_text: "Please email me at"
+    close: "Close"

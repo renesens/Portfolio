@@ -64,13 +64,19 @@
   // ── Contact form → n8n webhook ──
   var form = document.getElementById("contact-form");
   if (form) {
-    var status = form.querySelector(".form-status");
     var button = form.querySelector('button[type="submit"]');
-    var show = function (text, isError) {
-      status.textContent = text;
-      status.classList.toggle("is-error", !!isError);
-      status.hidden = false;
+    var buttonHTML = button.innerHTML;
+    var modal = document.getElementById("form-modal");
+    var show = function (state) {
+      modal.querySelector('[data-state="success"]').hidden = state !== "success";
+      modal.querySelector('[data-state="error"]').hidden = state !== "error";
+      modal.setAttribute("aria-labelledby", state === "error" ? "form-modal-error-title" : "form-modal-title");
+      if (modal.showModal) { modal.showModal(); } else { modal.setAttribute("open", ""); }
+      modal.querySelector(".fm-close").focus();
     };
+    var closeModal = function () { if (modal.close) { modal.close(); } else { modal.removeAttribute("open"); } };
+    modal.querySelector(".fm-close").addEventListener("click", closeModal);
+    modal.addEventListener("click", function (e) { if (e.target === modal) closeModal(); });
     form.addEventListener("submit", function (e) {
       e.preventDefault();
       if (!form.checkValidity()) { form.reportValidity(); return; }
@@ -86,9 +92,9 @@
         sent_at: new Date().toISOString()
       };
       var url = form.getAttribute("data-webhook");
-      if (!url) { show(form.getAttribute("data-error"), true); return; }
+      if (!url) { show("error"); return; }
       button.disabled = true;
-      show(form.getAttribute("data-sending"));
+      button.textContent = form.getAttribute("data-sending");
       fetch(url, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -97,10 +103,10 @@
         .then(function (r) {
           if (!r.ok) throw new Error("HTTP " + r.status);
           form.reset();
-          show(form.getAttribute("data-success"));
+          show("success");
         })
-        .catch(function () { show(form.getAttribute("data-error"), true); })
-        .then(function () { button.disabled = false; });
+        .catch(function () { show("error"); })
+        .then(function () { button.disabled = false; button.innerHTML = buttonHTML; });
     });
   }
 })();

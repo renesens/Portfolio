@@ -136,17 +136,16 @@ isHome: true
 <div style="background: #FFFDF9; border-radius: 20px; padding: 22px; display: flex; flex-direction: column; gap: 14px; margin-top: 8px">
 <p style="margin: 0; font-family: Caveat, cursive; font-size: 26px; line-height: 1.1; color: #B4442E">{{ c.note }}</p>
 <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font-size: 13px; font-weight: 500">
-<span style="background: #FFF1C7; border-radius: 8px; padding: 6px 10px">{{ c.flow[0] }}</span><span aria-hidden="true" style="color: #7A6B63">→</span>
-<span style="background: #FBE0D9; border-radius: 8px; padding: 6px 10px">{{ c.flow[1] }}</span><span aria-hidden="true" style="color: #7A6B63">→</span>
-<span style="background: #E3EEDD; border-radius: 8px; padding: 6px 10px">{{ c.flow[2] }}</span><span aria-hidden="true" style="color: #7A6B63">+</span>
-<span style="background: #E3EEDD; border-radius: 8px; padding: 6px 10px">{{ c.flow[3] }}</span><span aria-hidden="true" style="color: #7A6B63">→</span>
-<span style="background: #E8E4F7; border-radius: 8px; padding: 6px 10px">{{ c.flow[4] }}</span>
+{%- set chip_colors = ["#FFF1C7", "#FBE0D9", "#E3EEDD", "#E8E4F7", "#E3EEDD", "#FBE0D9"] %}
+{%- for step in c.flow %}
+<span style="background: {{ chip_colors[loop.index0 % 6] }}; border-radius: 8px; padding: 6px 10px">{{ step }}</span>{% if not loop.last %}<span aria-hidden="true" style="color: #7A6B63">→</span>{% endif %}
+{%- endfor %}
 </div>
 <p style="margin: 0; font-size: 14px; color: #5C4F49">{{ c.flow_caption }}</p>
 </div>
 <p class="contact-links" style="margin: 8px 0 0; font-size: 15px"><a href="mailto:{{ t.site.email }}">{{ t.site.email }}</a> · <a href="{{ t.site.linkedin }}">{{ c.linkedin }}</a></p>
 </div>
-<form id="contact-form" data-webhook="{{ t.site.form_webhook }}" data-sending="{{ c.form.sending }}" data-success="{{ c.form.success }}" data-error="{{ c.form.error }}" novalidate style="flex: 1 1 460px; min-width: 0; background: #FFFDF9; border-radius: 28px; padding: 36px; display: flex; flex-direction: column; gap: 18px">
+<form id="contact-form" data-webhook="{{ t.site.form_webhook }}" data-sending="{{ c.form.sending }}" novalidate style="flex: 1 1 460px; min-width: 0; background: #FFFDF9; border-radius: 28px; padding: 36px; display: flex; flex-direction: column; gap: 18px">
 <div style="display: flex; flex-wrap: wrap; gap: 16px">
 <div style="flex: 1 1 180px; display: flex; flex-direction: column; gap: 6px"><label for="w-name" style="font-size: 14px; font-weight: 500">{{ c.form.name }}</label><input id="w-name" name="name" type="text" autocomplete="name" required style="font: inherit; color: #2B2320; background: #FBF6EE; border: 1.5px solid #E6DACA; border-radius: 12px; padding: 12px 14px"></div>
 <div style="flex: 1 1 180px; display: flex; flex-direction: column; gap: 6px"><label for="w-email" style="font-size: 14px; font-weight: 500">{{ c.form.email }}</label><input id="w-email" name="email" type="email" autocomplete="email" required style="font: inherit; color: #2B2320; background: #FBF6EE; border: 1.5px solid #E6DACA; border-radius: 12px; padding: 12px 14px"></div>
@@ -158,7 +157,19 @@ isHome: true
 <div style="display: flex; flex-direction: column; gap: 6px"><label for="w-msg" style="font-size: 14px; font-weight: 500">{{ c.form.message }}</label><textarea id="w-msg" name="message" rows="5" required style="font: inherit; color: #2B2320; background: #FBF6EE; border: 1.5px solid #E6DACA; border-radius: 12px; padding: 12px 14px; resize: vertical"></textarea></div>
 <div class="hp" aria-hidden="true"><label for="w-web">Website</label><input id="w-web" name="website" type="text" tabindex="-1" autocomplete="off"></div>
 <button class="btn" type="submit" style="font: inherit; font-weight: 500; color: #FBF6EE; background: #B4442E; border: 0; border-radius: 999px; padding: 14px 28px; cursor: pointer; align-self: flex-start">{{ c.form.button }} <span class="arrow" aria-hidden="true">→</span></button>
-<p class="form-status" role="status" aria-live="polite" hidden></p>
 </form>
+<dialog class="form-modal" id="form-modal" aria-labelledby="form-modal-title">
+<div class="fm-box">
+<div data-state="success">
+<p class="fm-title" id="form-modal-title">{{ c.form.success_title }}</p>
+<p class="fm-text">{{ c.form.success_text }}</p>
+</div>
+<div data-state="error" hidden>
+<p class="fm-title" id="form-modal-error-title">{{ c.form.error_title }}</p>
+<p class="fm-text">{{ c.form.error_text }} <a href="mailto:{{ t.site.email }}">{{ t.site.email }}</a>.</p>
+</div>
+<button class="btn fm-close" type="button">{{ c.form.close }}</button>
+</div>
+</dialog>
 </div>
 </section>
