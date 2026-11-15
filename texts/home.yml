@@ -12,16 +12,16 @@ hero:
   text: "Engineer by training, QA by habit. I connect CRM, email, chat and forms for service businesses — and add AI only where it actually helps."
   button_work: "See my work"
   button_contact: "Write to me"
-  note: "Based in Prague · Make · n8n · Bitrix24 · ManyChat · OpenAI"
+  note: "Based in Prague · Make · n8n · ManyChat · OpenAI · CRM"
 
 # Стикеры на схеме справа
 sketch:
-  aria: "A lead flow sketched as sticky notes: a new request is checked for duplicates. If it is not a duplicate, a lead is created in Bitrix24 and the manager is notified."
+  aria: "A lead flow sketched as sticky notes: a new request is checked for duplicates. If it is not a duplicate, a lead is created in the CRM and the manager is notified."
   note1_title: "New request"
   note1_text: "website · email · Telegram"
   note2_title: "Duplicate?"
-  note2_text: "Message-ID · phone"
-  note3_title: "Lead in Bitrix24"
+  note2_text: "checked before saving"
+  note3_title: "Lead in CRM"
   note3_text: "source · owner · next step"
   note4_title: "Manager notified"
   note4_text: "task + reminder"
@@ -31,15 +31,22 @@ sketch:
 # ── What I do ──
 what_i_do:
   title: "What I do"
+  # ➕ ЧТОБЫ ДОБАВИТЬ УСЛУГУ: скопируйте любой блок «- title / text» ниже, вставьте его
+  #    в конец списка (с теми же отступами) и впишите свой текст. Вёрстку трогать не нужно.
+  #    Пример нового блока:
+  #      - title: "Название услуги"
+  #        text: "Короткое описание в одно-два предложения."
+  #    color — необязательно: без него цвет подберётся сам (по кругу из 4 цветов сайта).
+  #    Подробная инструкция: HOW-TO-EDIT.md в корне проекта.
   cards:
     - title: "Lead flows"
       text: "Requests from the website, email and messengers land in one place, qualified and assigned."
       color: "#FFF1C7"
     - title: "CRM setup"
-      text: "Bitrix24 pipelines, stages and fields that match how the team really sells."
+      text: "Pipelines, stages and fields in your CRM that match how the team really sells."
       color: "#E3EEDD"
     - title: "Integrations"
-      text: "CRM, email, forms and sheets talk to each other through Make and n8n — without duplicates."
+      text: "Your CRM, email, forms and sheets talk to each other through Make and n8n."
       color: "#FBE0D9"
     - title: "AI chatbots"
       text: "Chatbots answer the routine ones and hand complex or sensitive questions to a person."
@@ -110,7 +117,7 @@ contact:
   title: "Let's talk"
   text: "A role, a project or just a question — send me a few lines. I read every message myself."
   note: "psst — this form is my automation too"
-  flow: ["Form", "n8n webhook", "Telegram", "Google Sheets", "Auto-reply"]
+  flow: ["Form", "n8n webhook", "Telegram", "Google Sheets"]
   flow_caption: "This form runs on my own n8n workflow."
   linkedin: "LinkedIn"
   form:
@@ -123,5 +130,7 @@ contact:
     button: "Send message"
     # Сообщения после отправки (новые тексты — нужно ваше согласие)
     sending: "Sending…"
+    success_title: "Message sent"
     success: "Thank you! Your message is on its way. I'll reply soon."
+    close: "Close"
     error: "Something went wrong. Please email me at renata.cherniavska@gmail.com."

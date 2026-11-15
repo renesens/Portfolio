@@ -100,40 +100,31 @@
 </section>
 {% endmacro %}
 
-{#- "What changed" cards. colors: list of backgrounds; basis: card width -#}
-{% macro results(r, id, colors=["#FFF1C7","#E3EEDD","#FBE0D9","#E8E4F7"], basis="200px", bg="", divClass="", gridClass="") %}
-<section aria-labelledby="{{ id }}"{% if bg %} style="background: {{ bg }}"{% endif %}>
-<div{% if divClass %} class="{{ divClass }}"{% endif %} style="max-width: 1200px; margin: 0 auto; padding: 96px 24px; display: flex; flex-direction: column; gap: 32px">
+{#- "What changed" cards. One look for every case: no per-case settings. Used only through ending() -#}
+{% macro results(r, id, divider=false) %}
+{%- set colors = ["#FFF1C7","#E3EEDD","#FBE0D9","#E8E4F7"] -%}
+<section aria-labelledby="{{ id }}"{% if divider %} style="border-top: 1px solid #E6DACA"{% endif %}>
+<div class="sec" style="max-width: 1200px; margin: 0 auto; padding: 96px 24px; display: flex; flex-direction: column; gap: 32px">
 <div style="display: flex; flex-direction: column; gap: 12px">
 {{ heading(r.note, r.title, id) }}
 {%- if r.text %}
 <p style="margin: 0; font-size: 17px; color: #5C4F49">{{ r.text }}</p>
 {%- endif %}
 </div>
-<div{% if gridClass %} class="{{ gridClass }}"{% endif %} style="display: flex; flex-wrap: wrap; gap: 16px">
+<div style="display: flex; flex-wrap: wrap; gap: 16px">
 {%- for k in r.cards %}
-<div style="flex: 1 1 {{ basis }}; background: {{ colors[loop.index0 % colors.length] }}; border-radius: 22px; padding: 26px"><p style="margin: 0; font-family: Fraunces, Georgia, serif; font-size: 22px; line-height: 1.25">{{ k.title }}</p><p style="margin: 8px 0 0; font-size: 15px; color: #5C4F49">{{ k.text }}</p></div>
+<div style="flex: 1 1 200px; background: {{ colors[loop.index0 % colors.length] }}; border-radius: 22px; padding: 26px"><p style="margin: 0; font-family: Fraunces, Georgia, serif; font-size: 22px; line-height: 1.25">{{ k.title }}</p><p style="margin: 8px 0 0; font-size: 15px; color: #5C4F49">{{ k.text }}</p></div>
 {%- endfor %}
 </div>
 </div>
 </section>
 {% endmacro %}
 
-{#- Dark "what I took away" quote -#}
-{% macro lesson(l, id) %}
-<section aria-labelledby="{{ id }}" style="background: #2B2320; color: #F3EBDD">
-<div style="max-width: 900px; margin: 0 auto; padding: 96px 24px; display: flex; flex-direction: column; gap: 16px; text-align: center; align-items: center">
-<p style="margin: 0; font-family: Caveat, cursive; font-size: 28px; line-height: 1; color: #F2A58E">{{ l.note }}</p>
-<h2 id="{{ id }}" style="margin: 0; font-family: Fraunces, Georgia, serif; font-weight: 400; font-size: 36px; line-height: 1.25; color: #FBF6EE">{{ l.text }}</h2>
-</div>
-</section>
-{% endmacro %}
-
 {#- Next case + Let's talk -#}
-{% macro nextCase(nextSlug, t, ui, onCream=true, divClass="") %}
-<section aria-label="More"{% if onCream %} style="background: #F3EBDD"{% endif %}>
-<div{% if divClass %} class="{{ divClass }}"{% endif %} style="max-width: 1200px; margin: 0 auto; padding: 88px 24px; display: flex; flex-wrap: wrap; gap: 24px; align-items: stretch">
-<a class="next" href="/work/{{ nextSlug }}/" style="flex: 2 1 480px; text-decoration: none; color: #2B2320; background: {% if onCream %}#FFFDF9{% else %}#F3EBDD{% endif %}; border-radius: 22px; padding: 32px; display: flex; flex-direction: column; gap: 10px">
+{% macro nextCase(nextSlug, t, ui) %}
+<section aria-label="More" style="background: #F3EBDD">
+<div class="sec" style="max-width: 1200px; margin: 0 auto; padding: 88px 24px; display: flex; flex-wrap: wrap; gap: 24px; align-items: stretch">
+<a class="next" href="/work/{{ nextSlug }}/" style="flex: 2 1 480px; text-decoration: none; color: #2B2320; background: #FFFDF9; border-radius: 22px; padding: 32px; display: flex; flex-direction: column; gap: 10px">
 <span style="font-size: 14px; color: #7A6B63">{{ ui.next_case }}</span>
 <span style="font-family: Fraunces, Georgia, serif; font-size: 28px; line-height: 1.2">{{ t.cases[nextSlug].hero.title | striptags }}</span>
 <span style="font-size: 15px; color: #B4442E; font-weight: 500; margin-top: auto">{{ ui.read_case }} <span class="arrow" aria-hidden="true">→</span></span>
@@ -144,6 +135,14 @@
 </div>
 </div>
 </section>
+{% endmacro %}
+
+{#- Closing of every case page: "What changed", then "Next case" + "Let's talk". Same for all cases.
+    divider: a thin line above "What changed" when the section before it has the same cream background. -#}
+{% macro ending(c, t, ui, divider=false) %}
+{{ results(c.result, "c-result", divider) }}
+
+{{ nextCase(c.next, t, ui) }}
 {% endmacro %}
 
 {#- Diagram pieces -#}

@@ -13,6 +13,7 @@ isHome: true
 <a class="btn" href="#w-work" style="color: #FBF6EE; background: #B4442E; text-decoration: none; padding: 14px 26px; border-radius: 999px; font-weight: 500">{{ h.hero.button_work }} <span class="arrow" aria-hidden="true">→</span></a>
 <a class="btn-ghost" href="#w-contact" style="color: #2B2320; border: 1.5px solid #2B2320; text-decoration: none; padding: 13px 25px; border-radius: 999px; font-weight: 500">{{ h.hero.button_contact }}</a>
 </div>
+<p class="hero-links" style="margin: 0"><a href="{{ t.site.linkedin }}" rel="noopener">{{ t.site.footer_linkedin }}</a><a href="mailto:{{ t.site.email }}">{{ t.site.email }}</a></p>
 <p style="margin: 0; font-size: 14px; color: #7A6B63">{{ h.hero.note }}</p>
 </div>
 
@@ -35,9 +36,10 @@ isHome: true
 
 <section aria-labelledby="w-do-h" style="max-width: 1200px; margin: 0 auto; padding: 24px 24px 96px; display: flex; flex-direction: column; gap: 36px">
 <h2 id="w-do-h" style="margin: 0; font-family: Fraunces, Georgia, serif; font-weight: 400; font-size: 42px; line-height: 1.12; max-width: 760px">{{ h.what_i_do.title }}</h2>
-<div class="reveal" style="display: flex; flex-wrap: wrap; gap: 16px">
+{%- set palette = ["#FFF1C7", "#E3EEDD", "#FBE0D9", "#E8E4F7"] %}
+<div class="reveal services">
 {%- for c in h.what_i_do.cards %}
-<div style="flex: 1 1 250px; background: {{ c.color }}; border-radius: 22px; padding: 28px; display: flex; flex-direction: column; gap: 10px"><h3 style="margin: 0; font-family: Fraunces, Georgia, serif; font-weight: 500; font-size: 22px">{{ c.title }}</h3><p style="margin: 0; font-size: 15px; color: #5C4F49">{{ c.text }}</p></div>
+<div class="service" style="background: {{ c.color or palette[loop.index0 % palette.length] }}"><h3>{{ c.title }}</h3><p>{{ c.text }}</p></div>
 {%- endfor %}
 </div>
 </section>
@@ -76,7 +78,7 @@ isHome: true
 <p style="margin: 0; font-size: 18px; color: #5C4F49; max-width: 580px">{{ h.process.text }}</p>
 </div>
 {%- set stickers = [["#FFE08A","-1.5deg"],["#F6C9C0","1.5deg"],["#CFE3C8","-1deg"],["#D9D3F2","2deg"],["#FFE08A","-2deg"]] %}
-<ol class="reveal" style="list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 20px; justify-content: center">
+<ol class="reveal stickers" style="list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 20px; justify-content: center">
 {%- for st in h.process.steps %}{% set sk = stickers[loop.index0 % 5] %}
 <li style="flex: 1 1 190px; max-width: 220px; background: {{ sk[0] }}; padding: 22px 20px 26px; transform: rotate({{ sk[1] }}); box-shadow: 0 6px 14px rgba(43,35,32,0.10); display: flex; flex-direction: column; gap: 6px"><span style="font-family: Caveat, cursive; font-size: 30px; line-height: 1">{{ st.title }}</span><span style="font-size: 14px; color: #5C4F49">{{ st.text }}</span></li>
 {%- endfor %}
@@ -139,14 +141,13 @@ isHome: true
 <span style="background: #FFF1C7; border-radius: 8px; padding: 6px 10px">{{ c.flow[0] }}</span><span aria-hidden="true" style="color: #7A6B63">→</span>
 <span style="background: #FBE0D9; border-radius: 8px; padding: 6px 10px">{{ c.flow[1] }}</span><span aria-hidden="true" style="color: #7A6B63">→</span>
 <span style="background: #E3EEDD; border-radius: 8px; padding: 6px 10px">{{ c.flow[2] }}</span><span aria-hidden="true" style="color: #7A6B63">+</span>
-<span style="background: #E3EEDD; border-radius: 8px; padding: 6px 10px">{{ c.flow[3] }}</span><span aria-hidden="true" style="color: #7A6B63">→</span>
-<span style="background: #E8E4F7; border-radius: 8px; padding: 6px 10px">{{ c.flow[4] }}</span>
+<span style="background: #E3EEDD; border-radius: 8px; padding: 6px 10px">{{ c.flow[3] }}</span>
 </div>
 <p style="margin: 0; font-size: 14px; color: #5C4F49">{{ c.flow_caption }}</p>
 </div>
 <p class="contact-links" style="margin: 8px 0 0; font-size: 15px"><a href="mailto:{{ t.site.email }}">{{ t.site.email }}</a> · <a href="{{ t.site.linkedin }}">{{ c.linkedin }}</a></p>
 </div>
-<form id="contact-form" data-webhook="{{ t.site.form_webhook }}" data-sending="{{ c.form.sending }}" data-success="{{ c.form.success }}" data-error="{{ c.form.error }}" novalidate style="flex: 1 1 460px; min-width: 0; background: #FFFDF9; border-radius: 28px; padding: 36px; display: flex; flex-direction: column; gap: 18px">
+<form id="contact-form" data-webhook="{{ t.site.form_webhook }}" data-sending="{{ c.form.sending }}" data-success="{{ c.form.success }}" data-success-title="{{ c.form.success_title }}" data-close="{{ c.form.close }}" data-error="{{ c.form.error }}" novalidate style="flex: 1 1 460px; min-width: 0; background: #FFFDF9; border-radius: 28px; padding: 36px; display: flex; flex-direction: column; gap: 18px">
 <div style="display: flex; flex-wrap: wrap; gap: 16px">
 <div style="flex: 1 1 180px; display: flex; flex-direction: column; gap: 6px"><label for="w-name" style="font-size: 14px; font-weight: 500">{{ c.form.name }}</label><input id="w-name" name="name" type="text" autocomplete="name" required style="font: inherit; color: #2B2320; background: #FBF6EE; border: 1.5px solid #E6DACA; border-radius: 12px; padding: 12px 14px"></div>
 <div style="flex: 1 1 180px; display: flex; flex-direction: column; gap: 6px"><label for="w-email" style="font-size: 14px; font-weight: 500">{{ c.form.email }}</label><input id="w-email" name="email" type="email" autocomplete="email" required style="font: inherit; color: #2B2320; background: #FBF6EE; border: 1.5px solid #E6DACA; border-radius: 12px; padding: 12px 14px"></div>

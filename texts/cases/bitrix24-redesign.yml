@@ -10,7 +10,7 @@ card:
   tag_color: "#E3EEDD"
   title: "One overloaded Bitrix24 pipeline became three"
   text: "I mapped the real sales process in Miro first. Now managers see the stage and the next step for every lead."
-  stack: "Bitrix24 · Make · REST API"
+  stack: "Bitrix24 · Make · Miro"
 
 hero:
   tag: "CRM · Aquinium s.r.o"
@@ -73,6 +73,7 @@ gallery:
 result:
   note: "the result"
   title: "What changed"
+  text: "A CRM setup starts with the real business process. If stages, owners and rules are not clear, new fields and automations won't help."
   cards:
     - title: "The CRM matches the real process"
       text: "The new pipelines are in place and working."
@@ -82,9 +83,5 @@ result:
       text: "Customer, product and source are saved in fields, not in comments."
     - title: "Ready for reporting"
       text: "The data can be used for reports by source, stage and reason for loss."
-
-lesson:
-  note: "what I took away"
-  text: "A CRM setup starts with the real business process. If stages, owners and rules are not clear, new fields and automations won't help."
 
 next: email-bitrix24

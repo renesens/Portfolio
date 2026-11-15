@@ -71,6 +71,26 @@
       status.classList.toggle("is-error", !!isError);
       status.hidden = false;
     };
+    var popup = document.createElement("div");
+    popup.className = "popup";
+    popup.hidden = true;
+    popup.setAttribute("role", "dialog");
+    popup.setAttribute("aria-modal", "true");
+    popup.setAttribute("aria-labelledby", "popup-title");
+    popup.innerHTML = '<div class="popup-card"><h3 id="popup-title"></h3><p></p><button type="button" class="popup-ok"></button></div>';
+    document.body.appendChild(popup);
+    popup.querySelector("h3").textContent = form.getAttribute("data-success-title") || "";
+    popup.querySelector("p").textContent = form.getAttribute("data-success") || "";
+    var ok = popup.querySelector(".popup-ok");
+    ok.textContent = form.getAttribute("data-close") || "OK";
+    var openPopup = function () { popup.hidden = false; ok.focus(); };
+    var closePopup = function () { popup.hidden = true; button.focus(); };
+    ok.addEventListener("click", closePopup);
+    popup.addEventListener("click", function (e) { if (e.target === popup) closePopup(); });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && !popup.hidden) closePopup();
+    });
+
     form.addEventListener("submit", function (e) {
       e.preventDefault();
       if (!form.checkValidity()) { form.reportValidity(); return; }
@@ -97,7 +117,8 @@
         .then(function (r) {
           if (!r.ok) throw new Error("HTTP " + r.status);
           form.reset();
-          show(form.getAttribute("data-success"));
+          status.hidden = true;
+          openPopup();
         })
         .catch(function () { show(form.getAttribute("data-error"), true); })
         .then(function () { button.disabled = false; });

@@ -81,13 +81,10 @@ gallery:
       caption: "The ManyChat automations: keywords, FAQ, reminders, booking and delivery."
       flex: "1 1 420px"
 
-lesson:
-  note: "what I took away"
-  text: "AI works best when it supports a clear process. As a separate chatbot, it does much less."
-
 result:
   note: "the result"
   title: "What changed"
+  text: "AI works best when it supports a clear process. As a separate chatbot, it does much less."
   cards:
     - title: "~40% less manual work"
       text: "On processing requests."

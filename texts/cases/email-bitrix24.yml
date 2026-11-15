@@ -11,7 +11,7 @@ card:
   tag_color: "#FFF1C7"
   title: "Every email request becomes a clean CRM lead"
   text: "No manual transfer, duplicates filtered out — and every lead keeps a link to the original email."
-  stack: "Make · Regex · Data Store"
+  stack: "Make · Bitrix24 · Magento"
 
 hero:
   tag: "Lead flows · Aquinium s.r.o"

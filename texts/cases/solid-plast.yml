@@ -9,8 +9,8 @@ card:
   tag: "CRM · Aquinium (Solid-plast)"
   tag_color: "#E3EEDD"
   title: "A website move to Bitrix24, with its own lead funnel"
-  text: "Migrated to Bitrix24 with source tracking on every lead and email DNS records kept intact."
-  stack: "Bitrix24 · CRM forms · DNS"
+  text: "The website moved to a new Bitrix24 account. Every lead shows its source, and the company email kept working."
+  stack: "Bitrix24 · CRM forms"
 
 hero:
   tag: "CRM · Aquinium (Solid-plast)"
