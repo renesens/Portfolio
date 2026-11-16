@@ -13,6 +13,21 @@
     });
   });
 
+  // ── Menu button on phones ──
+  var navBtn = document.querySelector(".nav-toggle");
+  var nav = document.getElementById("main-nav");
+  if (navBtn && nav) {
+    var setNav = function (open) {
+      nav.classList.toggle("is-open", open);
+      navBtn.setAttribute("aria-expanded", open ? "true" : "false");
+    };
+    navBtn.addEventListener("click", function () { setNav(!nav.classList.contains("is-open")); });
+    nav.querySelectorAll("a").forEach(function (a) { a.addEventListener("click", function () { setNav(false); }); });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && nav.classList.contains("is-open")) { setNav(false); navBtn.focus(); }
+    });
+  }
+
   // ── Lightbox for screenshots ──
   var zooms = document.querySelectorAll(".zoom[data-lb-src]");
   if (zooms.length) {

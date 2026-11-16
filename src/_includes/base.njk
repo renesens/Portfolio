@@ -29,7 +29,8 @@
 <header>
 <div class="head" style="max-width: 1200px; margin: 0 auto; padding: 24px 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
 <a href="{% if isHome %}#w-top{% else %}/{% endif %}" style="color: #2B2320; text-decoration: none; font-family: Fraunces, Georgia, serif; font-weight: 500; font-size: 22px">{{ t.site.name }}</a>
-<nav class="main-nav" aria-label="Main" style="display: flex; flex-wrap: wrap; align-items: center; gap: 28px; font-size: 15px">
+<button class="nav-toggle" type="button" aria-controls="main-nav" aria-expanded="false" aria-label="Menu"><span></span><span></span><span></span></button>
+<nav class="main-nav" id="main-nav" aria-label="Main" style="display: flex; flex-wrap: wrap; align-items: center; gap: 28px; font-size: 15px">
 <a href="{% if not isHome %}/{% endif %}#w-work" style="color: #5C4F49; text-decoration: none">{{ t.site.nav.work }}</a>
 <a href="{% if not isHome %}/{% endif %}#w-services" style="color: #5C4F49; text-decoration: none">{{ t.site.nav.services }}</a>
 <a href="{% if not isHome %}/{% endif %}#w-process" style="color: #5C4F49; text-decoration: none">{{ t.site.nav.process }}</a>
@@ -39,7 +40,9 @@
 </div>
 </header>
 
+<main>
 {{ content }}
+</main>
 
 <footer>
 <div class="foot" style="max-width: 1200px; margin: 0 auto; padding: 32px 24px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px; font-size: 14px; color: #7A6B63">
