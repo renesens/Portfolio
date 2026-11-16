@@ -47,3 +47,13 @@ section:not(#w-top):not([aria-labelledby="w-do-h"])>div{padding:56px 16px!import
 form{padding:22px!important}
 footer>div{padding:24px 16px!important}
 }
+/* Short phones (iPhone SE): a bit tighter, so the tools line stays on the first screen */
+@media (max-width:640px) and (max-height:620px){
+#w-top>div:first-child{gap:16px!important;padding:16px 0}
+h1{font-size:34px!important}
+#w-top>div:first-child>p:not(.hero-role){font-size:17px!important}
+}
+/* Phone turned sideways: keep the sketch within the screen */
+@media (max-height:500px) and (orientation:landscape){
+#w-top .flow-sketch{max-height:80vh;width:100%}
+}
