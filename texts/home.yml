@@ -8,12 +8,10 @@ meta:
 # ── Первый экран ──
 hero:
   role: "Business & AI Automation Specialist"
-  hello: "Hi, I'm Renata."
   title: "I turn messy processes into <em>simple, reliable</em> systems."
   text: "Engineer by training, QA by habit. I connect CRM, email, chat and forms for service businesses — and add AI only where it actually helps."
   button_work: "See my work"
   button_contact: "Write to me"
-  note: "Based in Prague · Make · n8n · ManyChat · OpenAI · CRM"
 
 # Стикеры на схеме справа
 sketch:
