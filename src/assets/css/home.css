@@ -2,6 +2,9 @@
 @keyframes rise{from{opacity:0;translate:0 28px}to{opacity:1;translate:0 0}}
 .reveal{animation:rise linear both;animation-timeline:view();animation-range:entry 0% entry 70%}
 @supports not (animation-timeline: view()){.reveal{animation:none}}
+/* Hero: tools under the buttons */
+.hero-tools{list-style:none;margin:8px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.hero-tools li{font-size:14px;font-weight:500;color:#5C4F49;border:1.5px solid #E2D5C3;border-radius:999px;padding:5px 14px;line-height:1.4}
 /* What I do: equal cards in a responsive grid; a lone last card keeps the same width */
 .services{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(300px,100%),1fr));gap:16px}
 .service{border-radius:22px;padding:28px;display:flex;flex-direction:column;gap:10px}

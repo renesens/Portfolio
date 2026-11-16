@@ -13,6 +13,11 @@ isHome: true
 <a class="btn" href="#w-work" style="color: #FBF6EE; background: #B4442E; text-decoration: none; padding: 14px 26px; border-radius: 999px; font-weight: 500">{{ h.hero.button_work }} <span class="arrow" aria-hidden="true">→</span></a>
 <a class="btn-ghost" href="#w-contact" style="color: #2B2320; border: 1.5px solid #2B2320; text-decoration: none; padding: 13px 25px; border-radius: 999px; font-weight: 500">{{ h.hero.button_contact }}</a>
 </div>
+{%- if h.hero.tools %}
+<ul class="hero-tools" aria-label="Tools">
+{%- for tool in h.hero.tools %}<li>{{ tool }}</li>{% endfor %}
+</ul>
+{%- endif %}
 </div>
 
 <div style="flex: 1 1 440px; min-width: 0; position: relative; background-color: #F3EBDD; background-image: radial-gradient(#DDCFBA 1.2px, transparent 1.2px); background-size: 22px 22px; border-radius: 28px; padding: 28px 24px; display: flex; flex-direction: column; justify-content: center">

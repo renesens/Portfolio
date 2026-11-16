@@ -12,6 +12,8 @@ hero:
   text: "Engineer by training, QA by habit. I connect CRM, email, chat and forms for service businesses — and add AI only where it actually helps."
   button_work: "See my work"
   button_contact: "Write to me"
+  # Инструменты под кнопками. Добавить или убрать — просто правьте список
+  tools: ["Make", "n8n", "Bitrix24", "ManyChat"]
 
 # Стикеры на схеме справа
 sketch:
