@@ -31,8 +31,11 @@ h1{font-size:40px!important}
 h2{font-size:32px!important}
 #w-proc-h{font-size:42px!important}
 #w-contact-h{font-size:40px!important}
-#w-top{padding:28px 16px 56px!important;gap:32px!important}
-#w-top>div:last-child{padding:16px 10px!important}
+/* Phone: one screen = one thought. Screen 1 is the text, screen 2 is the sketch. 61px = menu bar height */
+#w-top{display:block!important;padding:0 16px 56px!important}
+#w-top>div:first-child{box-sizing:border-box;min-height:calc(100vh - 61px);min-height:calc(100svh - 61px);justify-content:center;padding:24px 0}
+#w-top>div:last-child{box-sizing:border-box;height:calc(100vh - 61px - 32px);height:calc(100svh - 61px - 32px);max-height:560px;padding:16px 10px!important;align-items:center}
+#w-top .flow-sketch{width:auto!important;height:100%!important;max-width:100%}
 section[aria-labelledby="w-do-h"]{padding:8px 16px 56px!important;gap:24px!important}
 section:not(#w-top):not([aria-labelledby="w-do-h"])>div{padding:56px 16px!important;gap:32px!important}
 .case{padding:22px!important}

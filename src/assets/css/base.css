@@ -75,11 +75,22 @@ header > .head { padding-block: 14px !important; }
 .hero-links { display: flex; flex-wrap: wrap; gap: 4px 20px; font-size: 15px; }
 .hero-links a { color: #5C4F49; text-underline-offset: 3px; padding-block: 8px; }
 .hero-links a:hover { color: #B4442E; }
+/* Menu button (☰): only on phones */
+.nav-toggle { display: none; }
 @media (max-width: 640px) {
-  html { scroll-padding-top: 96px; }
-  header > .head { padding: 6px 16px !important; gap: 0 !important; }
+  html { scroll-padding-top: 72px; }
+  header > .head { padding: 8px 8px 8px 16px !important; gap: 0 !important; flex-wrap: wrap !important; }
   header > .head > a { font-size: 18px !important; }
-  header nav a { min-height: 36px !important; }
+  .nav-toggle { display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 5px; width: 44px; height: 44px; padding: 0; border: 0; background: transparent; cursor: pointer; }
+  .nav-toggle span { display: block; width: 22px; height: 2px; border-radius: 2px; background: #2B2320; transition: transform .2s var(--ease-out), opacity .2s var(--ease-out); }
+  .nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+  .nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  /* The menu opens as a list under the name */
+  header nav.main-nav { display: none !important; flex-basis: 100%; flex-direction: column; align-items: stretch !important; gap: 0 !important; font-size: 17px !important; padding: 4px 8px 12px 0; }
+  header nav.main-nav.is-open { display: flex !important; }
+  header nav.main-nav a { min-height: 48px !important; display: flex !important; align-items: center; border-bottom: 1px solid #EFE4D4; }
+  header nav.main-nav a.btn { margin-top: 12px; justify-content: center; border-bottom: 0; padding: 0 20px !important; }
 }
 
 /* Shared motion: one easing curve, press feedback, hover only on devices that really hover */
