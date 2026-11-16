@@ -7,10 +7,11 @@ email: renata.cherniavska@gmail.com
 linkedin: "https://www.linkedin.com/in/renata-cherniavska/"
 
 nav:
-  work: Work
+  work: Portfolio
+  services: Services
   process: How I work
   about: About
-  hello: Say hello
+  hello: Contact
 
 footer: "© 2026 Renata Cherniavska · made in Prague"
 footer_linkedin: LinkedIn

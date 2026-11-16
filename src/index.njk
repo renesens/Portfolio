@@ -35,16 +35,6 @@ isHome: true
 </div>
 </section>
 
-<section aria-labelledby="w-do-h" style="max-width: 1200px; margin: 0 auto; padding: 24px 24px 96px; display: flex; flex-direction: column; gap: 36px">
-<h2 id="w-do-h" style="margin: 0; font-family: Fraunces, Georgia, serif; font-weight: 400; font-size: 42px; line-height: 1.12; max-width: 760px">{{ h.what_i_do.title }}</h2>
-{%- set palette = ["#FFF1C7", "#E3EEDD", "#FBE0D9", "#E8E4F7"] %}
-<div class="reveal services">
-{%- for c in h.what_i_do.cards %}
-<div class="service" style="background: {{ c.color or palette[loop.index0 % palette.length] }}"><h3>{{ c.title }}</h3><p>{{ c.text }}</p></div>
-{%- endfor %}
-</div>
-</section>
-
 <section id="w-work" aria-labelledby="w-work-h" style="background: #F3EBDD">
 <div style="max-width: 1200px; margin: 0 auto; padding: 96px 24px; display: flex; flex-direction: column; gap: 36px">
 <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 24px">
@@ -72,7 +62,17 @@ isHome: true
 </div>
 </section>
 
-<section id="w-process" aria-labelledby="w-proc-h">
+<section id="w-services" aria-labelledby="w-do-h" style="max-width: 1200px; margin: 0 auto; padding: 96px 24px 24px; display: flex; flex-direction: column; gap: 36px">
+<h2 id="w-do-h" style="margin: 0; font-family: Fraunces, Georgia, serif; font-weight: 400; font-size: 42px; line-height: 1.12; max-width: 760px">{{ h.what_i_do.title }}</h2>
+{%- set palette = ["#FFF1C7", "#E3EEDD", "#FBE0D9", "#E8E4F7"] %}
+<div class="reveal services">
+{%- for c in h.what_i_do.cards %}
+<div class="service" style="background: {{ c.color or palette[loop.index0 % palette.length] }}"><h3>{{ c.title }}</h3><p>{{ c.text }}</p></div>
+{%- endfor %}
+</div>
+</section>
+
+<section id="w-process" aria-labelledby="w-proc-h" style="background: #F3EBDD">
 <div style="max-width: 1200px; margin: 0 auto; padding: 104px 24px; display: flex; flex-direction: column; gap: 52px">
 <div style="display: flex; flex-direction: column; gap: 14px; align-items: center; text-align: center">
 <h2 id="w-proc-h" style="margin: 0; font-family: Fraunces, Georgia, serif; font-weight: 400; font-style: italic; font-size: 68px; line-height: 1.02; letter-spacing: -0.02em">{{ h.process.title }}</h2>

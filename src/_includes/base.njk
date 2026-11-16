@@ -31,6 +31,7 @@
 <a href="{% if isHome %}#w-top{% else %}/{% endif %}" style="color: #2B2320; text-decoration: none; font-family: Fraunces, Georgia, serif; font-weight: 500; font-size: 22px">{{ t.site.name }}</a>
 <nav class="main-nav" aria-label="Main" style="display: flex; flex-wrap: wrap; align-items: center; gap: 28px; font-size: 15px">
 <a href="{% if not isHome %}/{% endif %}#w-work" style="color: #5C4F49; text-decoration: none">{{ t.site.nav.work }}</a>
+<a href="{% if not isHome %}/{% endif %}#w-services" style="color: #5C4F49; text-decoration: none">{{ t.site.nav.services }}</a>
 <a href="{% if not isHome %}/{% endif %}#w-process" style="color: #5C4F49; text-decoration: none">{{ t.site.nav.process }}</a>
 <a href="{% if not isHome %}/{% endif %}#w-about" style="color: #5C4F49; text-decoration: none">{{ t.site.nav.about }}</a>
 <a class="btn" href="{% if not isHome %}/{% endif %}#w-contact" style="color: #FBF6EE; background: #2B2320; text-decoration: none; padding: 10px 20px; border-radius: 999px; font-weight: 500">{{ t.site.nav.hello }}</a>
