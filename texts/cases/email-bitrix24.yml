@@ -23,7 +23,7 @@ hero:
   stack: "Make · Bitrix24 REST API · Magento · Regex · Make Data Store"
 
 problem:
-  note: "the problem"
+  note: "where it started"
   title: "Important requests were stuck in the inbox"
   paragraphs:
     - "Customers filled in forms on the Magento online store, and the requests arrived by email. They didn't always make it into the CRM."

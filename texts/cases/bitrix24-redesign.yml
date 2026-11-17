@@ -22,7 +22,7 @@ hero:
   stack: "Bitrix24 · Make · REST API · website forms · Microsoft 365"
 
 problem:
-  note: "the problem"
+  note: "where it started"
   title: "Everything lived in one lead pipeline"
   paragraphs:
     - "Requests came from the website, ads, email, phone and partners. New requests, quotes, talks with clients, postponed deals, service and complaints were all in one pipeline."

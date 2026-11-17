@@ -23,7 +23,7 @@ hero:
   stack: "ManyChat · OpenAI · Make · Stripe · Google Sheets"
 
 problem:
-  note: "the problem"
+  note: "where it started"
   title: "Too much time went to direct messages"
   paragraphs:
     - "The expert spent a lot of time on manual chats in direct messages and on routine tasks."

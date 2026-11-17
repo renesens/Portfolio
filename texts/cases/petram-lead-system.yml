@@ -22,7 +22,7 @@ hero:
   stack: "Lovable Cloud · Make · Make Data Store · Bitrix24 · OpenAI · Google Sheets · Google Drive · Microsoft 365"
 
 problem:
-  note: "the problem"
+  note: "where it started"
   title: "One request is more than a name and an email"
   paragraphs:
     - "A request has contact details, pool type, project size, location, free text and several photos of the site. Without the photos, the team can't prepare an accurate offer."

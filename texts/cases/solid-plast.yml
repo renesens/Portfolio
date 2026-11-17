@@ -22,7 +22,7 @@ hero:
   stack: "Bitrix24 CRM · CRM forms · automation rules · DNS · domain setup"
 
 task:
-  note: "the task"
+  note: "where it started"
   title: "Moving a live website to a new account"
   paragraphs:
     - "The Solid-plast website had many pages. It had to move to the company's shared Bitrix24 account, and its requests needed their own sales process."
