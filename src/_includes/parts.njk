@@ -4,12 +4,12 @@
 <section{% if sectionClass %} class="{{ sectionClass }}"{% endif %} style="max-width: 1200px; margin: 0 auto; padding: 40px 24px 72px; display: flex; flex-direction: column; gap: 28px">
 <a href="/#w-work" style="align-self: flex-start; font-size: 15px; color: #5C4F49; text-decoration: none">{{ ui.back }}</a>
 <span style="align-self: flex-start; font-size: 13px; font-weight: 500; background: {{ c.card.tag_color }}; border-radius: 999px; padding: 4px 12px">{{ c.hero.tag }}</span>
-<h1 style="margin: 0; font-family: Fraunces, Georgia, serif; font-weight: 400; font-size: 60px; line-height: 1.05; letter-spacing: -0.02em; max-width: 900px">{{ c.hero.title }}</h1>
+<h1 style="max-width: 900px">{{ c.hero.title }}</h1>
 <p style="margin: 0; font-size: 19px; color: #5C4F49; max-width: {{ subWidth }}">{{ c.hero.subtitle }}</p>
 <dl style="margin: 16px 0 0; display: flex; flex-wrap: wrap; gap: 16px">
-<div style="flex: 1 1 240px; background: #F3EBDD; border-radius: 18px; padding: 18px 20px"><dt style="font-size: 13px; color: #6B5C54">{{ c.hero.company_label }}</dt><dd style="margin: 4px 0 0; font-weight: 500">{{ c.hero.company }}</dd></div>
-<div style="flex: 1 1 240px; background: #F3EBDD; border-radius: 18px; padding: 18px 20px"><dt style="font-size: 13px; color: #6B5C54">{{ ui.my_role }}</dt><dd style="margin: 4px 0 0; font-weight: 500">{{ c.hero.role }}</dd></div>
-<div style="flex: 1 1 240px; background: #F3EBDD; border-radius: 18px; padding: 18px 20px"><dt style="font-size: 13px; color: #6B5C54">{{ ui.stack }}</dt><dd style="margin: 4px 0 0; font-weight: 500">{{ c.hero.stack }}</dd></div>
+<div style="flex: 1 1 240px; background: #F3EBDD; border-radius: 14px; padding: 18px 20px"><dt style="font-size: 13px; color: #6B5C54">{{ c.hero.company_label }}</dt><dd style="margin: 4px 0 0; font-weight: 500">{{ c.hero.company }}</dd></div>
+<div style="flex: 1 1 240px; background: #F3EBDD; border-radius: 14px; padding: 18px 20px"><dt style="font-size: 13px; color: #6B5C54">{{ ui.my_role }}</dt><dd style="margin: 4px 0 0; font-weight: 500">{{ c.hero.role }}</dd></div>
+<div style="flex: 1 1 240px; background: #F3EBDD; border-radius: 14px; padding: 18px 20px"><dt style="font-size: 13px; color: #6B5C54">{{ ui.stack }}</dt><dd style="margin: 4px 0 0; font-weight: 500">{{ c.hero.stack }}</dd></div>
 </dl>
 </section>
 {% endmacro %}
@@ -25,8 +25,8 @@
 
 {#- Section label in Caveat + h2 -#}
 {% macro heading(note, title, id, dark=false) %}
-<p style="margin: 0; font-family: Caveat, cursive; font-size: 28px; line-height: 1; color: {% if dark %}#F2A58E{% else %}#B4442E{% endif %}">{{ note }}</p>
-<h2 id="{{ id }}" style="margin: 0; font-family: Fraunces, Georgia, serif; font-weight: 400; font-size: 40px; line-height: 1.12{% if dark %}; color: #FBF6EE{% else %}; color: #2B2320{% endif %}">{{ title }}</h2>
+<p class="sec-note{% if dark %} sec-note-light{% endif %}">{{ note }}</p>
+<h2 id="{{ id }}"{% if dark %} style="color: #FBF6EE"{% endif %}>{{ title }}</h2>
 {% endmacro %}
 
 {#- Numbered steps. accent: true = terracotta number -#}
@@ -93,7 +93,7 @@
 </div>
 <div{% if gridClass %} class="{{ gridClass }}"{% endif %} style="display: flex; flex-wrap: wrap; gap: 16px">
 {%- for k in d.cards %}
-<div style="flex: 1 1 220px; background: #3D322D; border-radius: 18px; padding: 22px"><p style="margin: 0 0 6px; font-weight: 600; color: #FBF6EE">{{ k.title }}</p><p style="margin: 0; font-size: 15px; color: #D6C9BD">{{ k.text }}</p></div>
+<div style="flex: 1 1 220px; background: #3D322D; border-radius: 22px; padding: 22px"><p style="margin: 0 0 6px; font-weight: 600; color: #FBF6EE">{{ k.title }}</p><p style="margin: 0; font-size: 15px; color: #D6C9BD">{{ k.text }}</p></div>
 {%- endfor %}
 </div>
 </div>
@@ -113,7 +113,7 @@
 </div>
 <div style="display: flex; flex-wrap: wrap; gap: 16px">
 {%- for k in r.cards %}
-<div style="flex: 1 1 200px; background: {{ colors[loop.index0 % colors.length] }}; border-radius: 22px; padding: 26px"><p style="margin: 0; font-family: Fraunces, Georgia, serif; font-size: 22px; line-height: 1.25">{{ k.title }}</p><p style="margin: 8px 0 0; font-size: 15px; color: #5C4F49">{{ k.text }}</p></div>
+<div style="flex: 1 1 200px; background: {{ colors[loop.index0 % colors.length] }}; border-radius: 22px; padding: 26px"><h3>{{ k.title }}</h3><p style="margin: 8px 0 0; font-size: 15px; color: #5C4F49">{{ k.text }}</p></div>
 {%- endfor %}
 </div>
 </div>
@@ -126,11 +126,11 @@
 <div class="sec" style="max-width: 1200px; margin: 0 auto; padding: 88px 24px; display: flex; flex-wrap: wrap; gap: 24px; align-items: stretch">
 <a class="next" href="/work/{{ nextSlug }}/" style="flex: 2 1 480px; text-decoration: none; color: #2B2320; background: #FFFDF9; border-radius: 22px; padding: 32px; display: flex; flex-direction: column; gap: 10px">
 <span style="font-size: 14px; color: #7A6B63">{{ ui.next_case }}</span>
-<span style="font-family: Fraunces, Georgia, serif; font-size: 28px; line-height: 1.2">{{ t.cases[nextSlug].hero.title | striptags }}</span>
+<h3>{{ t.cases[nextSlug].hero.title | striptags }}</h3>
 <span style="font-size: 15px; color: #B4442E; font-weight: 500; margin-top: auto">{{ ui.read_case }} <span class="arrow" aria-hidden="true">→</span></span>
 </a>
 <div style="flex: 1 1 320px; background: #2B2320; color: #FBF6EE; border-radius: 22px; padding: 32px; display: flex; flex-direction: column; gap: 14px">
-<span style="font-family: Fraunces, Georgia, serif; font-size: 26px; line-height: 1.2">{{ ui.lets_talk }}</span>
+<h3>{{ ui.lets_talk }}</h3>
 <a class="btn" href="/#w-contact" style="align-self: flex-start; color: #FBF6EE; background: #B4442E; text-decoration: none; padding: 12px 24px; border-radius: 999px; font-weight: 500; margin-top: auto">{{ ui.write_to_me }} <span class="arrow" aria-hidden="true">→</span></a>
 </div>
 </div>

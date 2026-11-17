@@ -31,6 +31,7 @@ sketch:
 
 # ── What I do ──
 what_i_do:
+  note: "where I can help"
   title: "What I do"
   # ➕ ЧТОБЫ ДОБАВИТЬ УСЛУГУ: скопируйте любой блок «- title / text» ниже, вставьте его
   #    в конец списка (с теми же отступами) и впишите свой текст. Вёрстку трогать не нужно.
@@ -69,6 +70,7 @@ work:
 
 # ── How I work ──
 process:
+  note: "how I work"
   title: "Process first, tools second."
   text: "I start with the business process and the people who use it — then choose the tool."
   steps:
@@ -99,6 +101,7 @@ about:
 
 # ── Experience & Certifications ──
 experience:
+  note: "the path so far"
   title: "Experience"
   jobs:
     - { role: "Business Automation Specialist", company: "Aquinium s.r.o", years: "2026 — now" }
@@ -115,6 +118,7 @@ certifications:
 
 # ── Contact ──
 contact:
+  heading_note: "say hello"
   title: "Let's talk"
   text: "A role, a project or just a question — send me a few lines. I read every message myself."
   note: "psst — this form is my automation too"

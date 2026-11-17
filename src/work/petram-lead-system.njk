@@ -28,7 +28,7 @@ permalink: /work/petram-lead-system/
 {{ p.steps(c.solution.steps) }}
 </div>
 <figure style="flex: 1 1 460px; min-width: 0; margin: 0; display: flex; flex-direction: column; gap: 12px">
-<div role="img" aria-label="{{ d.aria }}" style="background: #F3EBDD; border-radius: 24px; padding: 24px; display: flex; flex-direction: column; font-size: 14px; line-height: 1.4">
+<div role="img" aria-label="{{ d.aria }}" style="background: #F3EBDD; border-radius: 28px; padding: 24px; display: flex; flex-direction: column; font-size: 14px; line-height: 1.4">
 <div style="display: flex; flex-wrap: wrap; gap: 16px"><div style="flex: 1 1 220px; min-width: 0; display: flex; flex-direction: column"><p style="margin: 0 0 8px; font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #7A6B63">{{ d.form_label }}</p>{{ p.dNode(1, d.n1_title, d.n1_text) }}{{ p.dLine() }}{{ p.dNode(2, d.n2_title, d.n2_text) }}{{ p.dLine() }}{{ p.dNode(3, d.n3_title, d.n3_text) }}<span aria-hidden="true" style="flex: 1; width: 2px; min-height: 14px; background: #CDBFAE; margin-left: 28px"></span></div><div style="flex: 1 1 220px; min-width: 0; display: flex; flex-direction: column"><p style="margin: 0 0 8px; font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #7A6B63">{{ d.email_label }}</p>{{ p.dNode(4, d.n4_title, d.n4_text) }}{{ p.dLine() }}{{ p.dQ(5, d.q_title, d.q_text) }}<span aria-hidden="true" style="height: 8px"></span><div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: stretch">{{ p.dSide(d.no_label, d.no_title, d.no_text, "#EAE2D6", "#7A6B63", "1 1 110px", "10px 12px") }}{{ p.dSide(d.unclear_label, d.unclear_title, d.unclear_text, "#FFF1C7", "#6E5208", "1 1 110px", "10px 12px") }}</div>{{ p.dBranch(d.yes_label) }}{{ p.dNode("✓", d.ready_title, d.ready_text) }}{{ p.dLine() }}</div></div>{{ p.dMerge(d.merge) }}{{ p.dRed(d.n6_title, d.n6_text) }}{{ p.dLine() }}{{ p.dFinal(d.n7_title, d.n7_text) }}
 {{ p.dNote(d.note) }}</div>
 <figcaption style="font-size: 14px; color: #7A6B63">{{ d.caption }}</figcaption>
@@ -50,9 +50,9 @@ permalink: /work/petram-lead-system/
 </div>
 <ul style="flex: 1 1 460px; min-width: 0; margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px">
 {%- for it in w.items %}
-<li style="background: #FFFDF9; border-radius: 18px; padding: 20px 22px"><p style="margin: 0; font-weight: 600">{{ it.title }}</p><p style="margin: 4px 0 0; font-size: 15px; color: #5C4F49">{{ it.text }}</p></li>
+<li style="background: #FFFDF9; border-radius: 22px; padding: 20px 22px"><p style="margin: 0; font-weight: 600">{{ it.title }}</p><p style="margin: 4px 0 0; font-size: 15px; color: #5C4F49">{{ it.text }}</p></li>
 {%- endfor %}
-<li style="grid-column: 1 / -1; background: #2B2320; border-radius: 18px; padding: 20px 22px; color: #FBF6EE"><p style="margin: 0; font-weight: 600">{{ w.last_title }}</p><p style="margin: 4px 0 0; font-size: 15px; color: #D6C9BD">{{ w.last_text }}</p></li>
+<li style="grid-column: 1 / -1; background: #2B2320; border-radius: 22px; padding: 20px 22px; color: #FBF6EE"><p style="margin: 0; font-weight: 600">{{ w.last_title }}</p><p style="margin: 4px 0 0; font-size: 15px; color: #D6C9BD">{{ w.last_text }}</p></li>
 </ul>
 </div>
 </section>

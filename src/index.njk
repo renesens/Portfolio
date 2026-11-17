@@ -7,7 +7,7 @@ isHome: true
 <section id="w-top" style="max-width: 1200px; margin: 0 auto; padding: 72px 24px 96px; display: flex; flex-wrap: wrap; gap: 56px; align-items: center">
 <div style="flex: 1 1 500px; min-width: 0; display: flex; flex-direction: column; gap: 24px">
 <p class="hero-role">{{ h.hero.role }}</p>
-<h1 style="margin: 0; font-family: Fraunces, Georgia, serif; font-weight: 400; font-size: 64px; line-height: 1.04; letter-spacing: -0.02em; color: #2B2320">{{ h.hero.title }}</h1>
+<h1>{{ h.hero.title }}</h1>
 <p style="margin: 0; font-size: 19px; color: #5C4F49; max-width: 540px">{{ h.hero.text }}</p>
 <div style="display: flex; flex-wrap: wrap; gap: 12px; align-items: center">
 <a class="btn" href="#w-work" style="color: #FBF6EE; background: #B4442E; text-decoration: none; padding: 14px 26px; border-radius: 999px; font-weight: 500">{{ h.hero.button_work }} <span class="arrow" aria-hidden="true">→</span></a>
@@ -41,8 +41,8 @@ isHome: true
 <div style="max-width: 1200px; margin: 0 auto; padding: 96px 24px; display: flex; flex-direction: column; gap: 36px">
 <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 24px">
 <div style="display: flex; flex-direction: column; gap: 8px">
-<p style="margin: 0; font-family: Caveat, cursive; font-size: 28px; line-height: 1; color: #B4442E">{{ h.work.note }}</p>
-<h2 id="w-work-h" style="margin: 0; font-family: Fraunces, Georgia, serif; font-weight: 400; font-size: 42px; line-height: 1.12">{{ h.work.title }}</h2>
+<p class="sec-note">{{ h.work.note }}</p>
+<h2 id="w-work-h">{{ h.work.title }}</h2>
 </div>
 <div role="group" aria-label="{{ h.work.filters_aria }}" style="display: flex; flex-wrap: wrap; gap: 8px">
 {%- for f in h.work.filters %}
@@ -55,7 +55,7 @@ isHome: true
 {%- for slug in h.work.order %}{% set cs = t.cases[slug].card %}
 <a class="case" data-cat="{{ cs.cat }}" href="/work/{{ slug }}/" style="flex: 1 1 340px; text-decoration: none; color: #2B2320; background: #FFFDF9; border-radius: 22px; padding: 28px; display: flex; flex-direction: column; gap: 12px">
 <span style="align-self: flex-start; font-size: 13px; font-weight: 500; background: {{ cs.tag_color }}; border-radius: 999px; padding: 4px 12px">{{ cs.tag }}</span>
-<span style="font-family: Fraunces, Georgia, serif; font-size: 23px; line-height: 1.25">{{ cs.title }}</span>
+<h3>{{ cs.title }}</h3>
 <span style="font-size: 15px; color: #5C4F49">{{ cs.text }}</span>
 <span style="margin-top: auto; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px"><span style="font-size: 13px; color: #7A6B63">{{ cs.stack }}</span><span class="more">{{ h.work.read_case }} <span class="arrow" aria-hidden="true">→</span></span></span>
 </a>
@@ -65,7 +65,10 @@ isHome: true
 </section>
 
 <section id="w-services" aria-labelledby="w-do-h" style="max-width: 1200px; margin: 0 auto; padding: 96px 24px 24px; display: flex; flex-direction: column; gap: 36px">
-<h2 id="w-do-h" style="margin: 0; font-family: Fraunces, Georgia, serif; font-weight: 400; font-size: 42px; line-height: 1.12; max-width: 760px">{{ h.what_i_do.title }}</h2>
+<div style="display: flex; flex-direction: column; gap: 8px">
+<p class="sec-note">{{ h.what_i_do.note }}</p>
+<h2 id="w-do-h" style="max-width: 760px">{{ h.what_i_do.title }}</h2>
+</div>
 {%- set palette = ["#FFF1C7", "#E3EEDD", "#FBE0D9", "#E8E4F7"] %}
 <div class="reveal services">
 {%- for c in h.what_i_do.cards %}
@@ -77,7 +80,8 @@ isHome: true
 <section id="w-process" aria-labelledby="w-proc-h" style="background: #F3EBDD">
 <div style="max-width: 1200px; margin: 0 auto; padding: 104px 24px; display: flex; flex-direction: column; gap: 52px">
 <div style="display: flex; flex-direction: column; gap: 14px; align-items: center; text-align: center">
-<h2 id="w-proc-h" style="margin: 0; font-family: Fraunces, Georgia, serif; font-weight: 400; font-style: italic; font-size: 68px; line-height: 1.02; letter-spacing: -0.02em">{{ h.process.title }}</h2>
+<p class="sec-note">{{ h.process.note }}</p>
+<h2 id="w-proc-h">{{ h.process.title }}</h2>
 <p style="margin: 0; font-size: 18px; color: #5C4F49; max-width: 580px">{{ h.process.text }}</p>
 </div>
 {%- set stickers = [["#FFE08A","-1.5deg"],["#F6C9C0","1.5deg"],["#CFE3C8","-1deg"],["#D9D3F2","2deg"],["#FFE08A","-2deg"]] %}
@@ -93,8 +97,8 @@ isHome: true
 <div class="reveal" style="max-width: 1200px; margin: 0 auto; padding: 104px 24px; display: flex; flex-wrap: wrap; gap: 64px; align-items: center">
 <img src="/assets/img/renata.jpg" alt="{{ h.about.photo_alt }}" width="900" height="1117" style="flex: 0 1 360px; min-width: 0; width: 360px; max-width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 30%; background: #3D322D; border-radius: 180px 180px 24px 24px; display: block">
 <div style="flex: 1 1 480px; min-width: 0; display: flex; flex-direction: column; gap: 20px">
-<p style="margin: 0; font-family: Caveat, cursive; font-size: 30px; line-height: 1; color: #F2A58E">{{ h.about.note }}</p>
-<h2 id="w-about-h" style="margin: 0; font-family: Fraunces, Georgia, serif; font-weight: 400; font-size: 44px; line-height: 1.1; color: #FBF6EE">{{ h.about.title }}</h2>
+<p class="sec-note sec-note-light">{{ h.about.note }}</p>
+<h2 id="w-about-h" style="color: #FBF6EE">{{ h.about.title }}</h2>
 {%- for p in h.about.paragraphs %}
 <p style="margin: 0; font-size: 17px; color: #D6C9BD">{{ p }}</p>
 {%- endfor %}
@@ -111,7 +115,10 @@ isHome: true
 <section aria-labelledby="w-exp-h">
 <div class="reveal" style="max-width: 1200px; margin: 0 auto; padding: 96px 24px; display: flex; flex-wrap: wrap; gap: 56px">
 <div style="flex: 1 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 16px">
-<h2 id="w-exp-h" style="margin: 0; font-family: Fraunces, Georgia, serif; font-weight: 400; font-size: 32px">{{ h.experience.title }}</h2>
+<div style="display: flex; flex-direction: column; gap: 8px">
+<p class="sec-note">{{ h.experience.note }}</p>
+<h2 id="w-exp-h">{{ h.experience.title }}</h2>
+</div>
 <div style="display: flex; flex-direction: column">
 {%- for j in h.experience.jobs %}
 <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 24px; padding: 16px 0{% if not loop.last %}; border-bottom: 1px solid #E6DACA{% endif %}"><span><strong style="font-weight: 600">{{ j.role }}</strong> <span style="color: #5C4F49">· {{ j.company }}</span></span><span style="font-size: 14px; color: #7A6B63">{{ j.years }}</span></div>
@@ -119,10 +126,10 @@ isHome: true
 </div>
 </div>
 <div style="flex: 1 1 360px; min-width: 0; display: flex; flex-direction: column; gap: 16px">
-<h2 style="margin: 0; font-family: Fraunces, Georgia, serif; font-weight: 400; font-size: 32px">{{ h.certifications.title }}</h2>
+<h2>{{ h.certifications.title }}</h2>
 <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 10px">
 {%- for c in h.certifications.items %}
-<li style="background: #F3EBDD; border-radius: 16px; padding: 14px 18px"><span style="font-weight: 600">{{ c.name }}</span><br><span style="font-size: 14px; color: #7A6B63">{{ c.issuer }}</span></li>
+<li style="background: #F3EBDD; border-radius: 14px; padding: 14px 18px"><span style="font-weight: 600">{{ c.name }}</span><br><span style="font-size: 14px; color: #7A6B63">{{ c.issuer }}</span></li>
 {%- endfor %}
 </ul>
 {%- if t.site.cv_file %}
@@ -136,15 +143,18 @@ isHome: true
 <section id="w-contact" aria-labelledby="w-contact-h" style="background: #F3EBDD">
 <div class="reveal" style="max-width: 1200px; margin: 0 auto; padding: 104px 24px; display: flex; flex-wrap: wrap; gap: 56px">
 <div style="flex: 1 1 400px; min-width: 0; display: flex; flex-direction: column; gap: 20px">
-<h2 id="w-contact-h" style="margin: 0; font-family: Fraunces, Georgia, serif; font-weight: 400; font-size: 52px; line-height: 1.05">{{ c.title }}</h2>
+<div style="display: flex; flex-direction: column; gap: 8px">
+<p class="sec-note">{{ c.heading_note }}</p>
+<h2 id="w-contact-h">{{ c.title }}</h2>
+</div>
 <p style="margin: 0; font-size: 17px; color: #5C4F49">{{ c.text }}</p>
-<div style="background: #FFFDF9; border-radius: 20px; padding: 22px; display: flex; flex-direction: column; gap: 14px; margin-top: 8px">
+<div style="background: #FFFDF9; border-radius: 28px; padding: 22px; display: flex; flex-direction: column; gap: 14px; margin-top: 8px">
 <p style="margin: 0; font-family: Caveat, cursive; font-size: 26px; line-height: 1.1; color: #B4442E">{{ c.note }}</p>
 <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font-size: 13px; font-weight: 500">
-<span style="background: #FFF1C7; border-radius: 8px; padding: 6px 10px">{{ c.flow[0] }}</span><span aria-hidden="true" style="color: #7A6B63">→</span>
-<span style="background: #FBE0D9; border-radius: 8px; padding: 6px 10px">{{ c.flow[1] }}</span><span aria-hidden="true" style="color: #7A6B63">→</span>
-<span style="background: #E3EEDD; border-radius: 8px; padding: 6px 10px">{{ c.flow[2] }}</span><span aria-hidden="true" style="color: #7A6B63">+</span>
-<span style="background: #E3EEDD; border-radius: 8px; padding: 6px 10px">{{ c.flow[3] }}</span>
+<span style="background: #FFF1C7; border-radius: 999px; padding: 6px 12px">{{ c.flow[0] }}</span><span aria-hidden="true" style="color: #7A6B63">→</span>
+<span style="background: #FBE0D9; border-radius: 999px; padding: 6px 12px">{{ c.flow[1] }}</span><span aria-hidden="true" style="color: #7A6B63">→</span>
+<span style="background: #E3EEDD; border-radius: 999px; padding: 6px 12px">{{ c.flow[2] }}</span><span aria-hidden="true" style="color: #7A6B63">+</span>
+<span style="background: #E3EEDD; border-radius: 999px; padding: 6px 12px">{{ c.flow[3] }}</span>
 </div>
 <p style="margin: 0; font-size: 14px; color: #5C4F49">{{ c.flow_caption }}</p>
 </div>
@@ -152,14 +162,14 @@ isHome: true
 </div>
 <form id="contact-form" data-webhook="{{ t.site.form_webhook }}" data-sending="{{ c.form.sending }}" data-success="{{ c.form.success }}" data-success-title="{{ c.form.success_title }}" data-close="{{ c.form.close }}" data-error="{{ c.form.error }}" novalidate style="flex: 1 1 460px; min-width: 0; background: #FFFDF9; border-radius: 28px; padding: 36px; display: flex; flex-direction: column; gap: 18px">
 <div style="display: flex; flex-wrap: wrap; gap: 16px">
-<div style="flex: 1 1 180px; display: flex; flex-direction: column; gap: 6px"><label for="w-name" style="font-size: 14px; font-weight: 500">{{ c.form.name }}</label><input id="w-name" name="name" type="text" autocomplete="name" required style="font: inherit; color: #2B2320; background: #FBF6EE; border: 1.5px solid #E6DACA; border-radius: 12px; padding: 12px 14px"></div>
-<div style="flex: 1 1 180px; display: flex; flex-direction: column; gap: 6px"><label for="w-email" style="font-size: 14px; font-weight: 500">{{ c.form.email }}</label><input id="w-email" name="email" type="email" autocomplete="email" required style="font: inherit; color: #2B2320; background: #FBF6EE; border: 1.5px solid #E6DACA; border-radius: 12px; padding: 12px 14px"></div>
+<div style="flex: 1 1 180px; display: flex; flex-direction: column; gap: 6px"><label for="w-name" style="font-size: 14px; font-weight: 500">{{ c.form.name }}</label><input id="w-name" name="name" type="text" autocomplete="name" required style="font: inherit; color: #2B2320; background: #FBF6EE; border: 1.5px solid #E6DACA; border-radius: 14px; padding: 12px 14px"></div>
+<div style="flex: 1 1 180px; display: flex; flex-direction: column; gap: 6px"><label for="w-email" style="font-size: 14px; font-weight: 500">{{ c.form.email }}</label><input id="w-email" name="email" type="email" autocomplete="email" required style="font: inherit; color: #2B2320; background: #FBF6EE; border: 1.5px solid #E6DACA; border-radius: 14px; padding: 12px 14px"></div>
 </div>
 <div style="display: flex; flex-wrap: wrap; gap: 16px">
-<div style="flex: 1 1 180px; display: flex; flex-direction: column; gap: 6px"><label for="w-co" style="font-size: 14px; font-weight: 500">{{ c.form.company }}</label><input id="w-co" name="company" type="text" autocomplete="organization" style="font: inherit; color: #2B2320; background: #FBF6EE; border: 1.5px solid #E6DACA; border-radius: 12px; padding: 12px 14px"></div>
-<div style="flex: 1 1 180px; display: flex; flex-direction: column; gap: 6px"><label for="w-type" style="font-size: 14px; font-weight: 500">{{ c.form.topic }}</label><select id="w-type" name="topic" style="font: inherit; color: #2B2320; background: #FBF6EE; border: 1.5px solid #E6DACA; border-radius: 12px; padding: 12px 14px">{% for o in c.form.topics %}<option>{{ o }}</option>{% endfor %}</select></div>
+<div style="flex: 1 1 180px; display: flex; flex-direction: column; gap: 6px"><label for="w-co" style="font-size: 14px; font-weight: 500">{{ c.form.company }}</label><input id="w-co" name="company" type="text" autocomplete="organization" style="font: inherit; color: #2B2320; background: #FBF6EE; border: 1.5px solid #E6DACA; border-radius: 14px; padding: 12px 14px"></div>
+<div style="flex: 1 1 180px; display: flex; flex-direction: column; gap: 6px"><label for="w-type" style="font-size: 14px; font-weight: 500">{{ c.form.topic }}</label><select id="w-type" name="topic" style="font: inherit; color: #2B2320; background: #FBF6EE; border: 1.5px solid #E6DACA; border-radius: 14px; padding: 12px 14px">{% for o in c.form.topics %}<option>{{ o }}</option>{% endfor %}</select></div>
 </div>
-<div style="display: flex; flex-direction: column; gap: 6px"><label for="w-msg" style="font-size: 14px; font-weight: 500">{{ c.form.message }}</label><textarea id="w-msg" name="message" rows="5" required style="font: inherit; color: #2B2320; background: #FBF6EE; border: 1.5px solid #E6DACA; border-radius: 12px; padding: 12px 14px; resize: vertical"></textarea></div>
+<div style="display: flex; flex-direction: column; gap: 6px"><label for="w-msg" style="font-size: 14px; font-weight: 500">{{ c.form.message }}</label><textarea id="w-msg" name="message" rows="5" required style="font: inherit; color: #2B2320; background: #FBF6EE; border: 1.5px solid #E6DACA; border-radius: 14px; padding: 12px 14px; resize: vertical"></textarea></div>
 <div class="hp" aria-hidden="true"><label for="w-web">Website</label><input id="w-web" name="website" type="text" tabindex="-1" autocomplete="off"></div>
 <button class="btn" type="submit" style="font: inherit; font-weight: 500; color: #FBF6EE; background: #B4442E; border: 0; border-radius: 999px; padding: 14px 28px; cursor: pointer; align-self: flex-start">{{ c.form.button }} <span class="arrow" aria-hidden="true">→</span></button>
 <p class="form-status" role="status" aria-live="polite" hidden></p>
