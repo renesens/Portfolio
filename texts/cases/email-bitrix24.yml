@@ -105,7 +105,7 @@ qa:
       text: "The same error handling catches these too."
 
 result:
-  note: "the result"
+  note: "after launch"
   title: "What changed"
   cards:
     - title: "No manual transfer"
