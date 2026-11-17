@@ -101,7 +101,6 @@ about:
 
 # ── Experience & Certifications ──
 experience:
-  note: "the path so far"
   title: "Experience"
   jobs:
     - { role: "Business Automation Specialist", company: "Aquinium s.r.o", years: "2026 — now" }
