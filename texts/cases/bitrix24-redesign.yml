@@ -32,7 +32,7 @@ problem:
   before_items: ["New request", "Complaint", "Quote sent", "Service request", "Negotiation", "Postponed deal"]
 
 solution:
-  note: "what I built"
+  note: "what I did"
   title: "Mapping the process before touching the CRM"
   paragraphs:
     - "I went through the old Bitrix24 setup and real requests. Then I mapped the real sales process in Miro: how a request comes in, how it is qualified, the follow-up and the result."
@@ -71,7 +71,7 @@ gallery:
       caption: "Automation rules in the sales pipeline: tasks and checks for each stage."
 
 result:
-  note: "after launch"
+  note: "the result"
   title: "What changed"
   text: "A CRM setup starts with the real business process. If stages, owners and rules are not clear, new fields and automations won't help."
   cards:

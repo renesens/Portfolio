@@ -81,7 +81,7 @@ gallery:
       flex: "1 1 480px"
 
 result:
-  note: "after launch"
+  note: "the result"
   title: "What changed"
   cards:
     - title: "~10 hours a week"
