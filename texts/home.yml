@@ -31,7 +31,7 @@ sketch:
 
 # ── What I do ──
 what_i_do:
-  note: "for service businesses"
+  note: "what you can hire me for"
   title: "What I do"
   # ➕ ЧТОБЫ ДОБАВИТЬ УСЛУГУ: скопируйте любой блок «- title / text» ниже, вставьте его
   #    в конец списка (с теми же отступами) и впишите свой текст. Вёрстку трогать не нужно.
