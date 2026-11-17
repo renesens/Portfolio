@@ -82,7 +82,7 @@ gallery:
       flex: "1 1 420px"
 
 result:
-  note: "the result"
+  note: "after launch"
   title: "What changed"
   text: "AI works best when it supports a clear process. As a separate chatbot, it does much less."
   cards:

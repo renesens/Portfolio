@@ -63,7 +63,7 @@ gallery:
       caption: "The Solid-plast sales pipeline with automation rules for each stage (in Czech)."
 
 domain:
-  note: "the domain"
+  note: "email had to keep working"
   title: "Moving solid-plast.cz safely"
   text: "I released the domain from the old account and connected it to the new one. The email DNS records stayed the same. The old website is kept on a subdomain as a backup."
   aria: "The domain move in four steps"
@@ -90,7 +90,7 @@ qa:
       text: "The full path, from form to lead to deal."
 
 result:
-  note: "the result"
+  note: "after launch"
   title: "What changed"
   cards:
     - title: "Live in the new account"

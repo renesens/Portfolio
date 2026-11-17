@@ -31,7 +31,7 @@ sketch:
 
 # ── What I do ──
 what_i_do:
-  note: "where I can help"
+  note: "for service businesses"
   title: "What I do"
   # ➕ ЧТОБЫ ДОБАВИТЬ УСЛУГУ: скопируйте любой блок «- title / text» ниже, вставьте его
   #    в конец списка (с теми же отступами) и впишите свой текст. Вёрстку трогать не нужно.
@@ -121,9 +121,9 @@ contact:
   heading_note: "open to new roles and projects"
   title: "Let's talk"
   text: "A role, a project or just a question — send me a few lines. I read every message myself."
-  note: "psst — this form is my automation too"
+  note: "this form is one of my automations"
   flow: ["Form", "n8n webhook", "Telegram", "Google Sheets"]
-  flow_caption: "This form runs on my own n8n workflow."
+  flow_caption: "Your message comes to me in Telegram and is saved in Google Sheets."
   linkedin: "LinkedIn"
   form:
     name: "Your name"

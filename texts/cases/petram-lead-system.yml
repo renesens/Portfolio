@@ -79,7 +79,7 @@ diagram:
   n6_text: "Finds or adds the contact, creates the lead"
   n7_title: "7 · Google Sheets"
   n7_text: "A row for each lead. The form also emails the team"
-  note: "two ways in, one CRM"
+  note: "the email channel came later"
   caption: "The flow, simplified."
 
 gallery:
@@ -95,7 +95,7 @@ gallery:
       flex: "1 1 100%"
 
 website:
-  note: "the website"
+  note: "built alongside the lead flow"
   title: "The website behind the form"
   paragraphs:
     - "The form lives on stavimebazeny.cz, the company's new website. I built it in Lovable as part of the same project."
@@ -126,7 +126,7 @@ why:
       text: "If the AI step or its answer fails, the email scenario writes the error to a log sheet."
 
 result:
-  note: "the result"
+  note: "after launch"
   title: "What changed"
   text: "This was a new business, so there is no “before” to compare with. The goal was a process that works from the first request."
   cards:
